@@ -1655,9 +1655,531 @@ Challenge my framing if the problem I've described looks like a symptom of somet
         url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
       },
     ],
+  },
+{
+    id: "41",
+    title: "Build a Research Agent",
+    slug: "build-a-research-agent",
+    description:
+      "Set up an AI agent that runs multi-step research on a topic—searching, gathering, and synthesizing across sources—so you get a structured brief instead of doing the digging yourself. This workflow covers designing the agent's task, sources, and guardrails.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 4-6 hours per research task",
+    audience: ["Consultants", "Analysts", "Researchers", "Knowledge workers"],
+    problem:
+      "Deep research is high-value but time-consuming: framing the question, searching across sources, gathering findings, and synthesizing. Doing it manually every time doesn't scale, but naive AI answers taken at face value can be confidently wrong—so you need something that gathers and synthesizes with sources you can verify, not a black box that asserts.",
+    solution:
+      "A research agent chains the steps—decompose the question, search, gather, synthesize—into a repeatable process that produces a sourced brief. The key design work is defining what 'good' looks like: which sources to trust, requiring citations, and keeping a 'what we couldn't verify' section. You review the output as you would a junior researcher's: useful, fast, but checked before you rely on it.",
+    steps: [
+      "Define the research task precisely: the question, the scope, and what the output should look like.",
+      "Choose your platform—a tool with agent/web-search capabilities (Claude, ChatGPT with search, or a purpose-built agent).",
+      "Write clear instructions: decompose the question, search, cite every claim, flag uncertainty.",
+      "Set guardrails: which sources to prioritize, and a required 'unverified / low-confidence' section.",
+      "Test on a topic you already know well, so you can catch where it goes wrong.",
+      "Review outputs and verify key claims against primary sources before acting—treat it as a fast first pass, not final truth.",
+    ],
+    prompt: `You are a research agent. Research this topic and produce a sourced brief.
+
+Research question: [the question]
+Scope: [what to include/exclude]
+Output needed: [brief / comparison / summary]
+
+Follow this process:
+1. Break the question into sub-questions
+2. Search for and gather relevant information for each
+3. Synthesize findings into themes, citing a source for every claim
+4. Maintain a clear "low-confidence / could not verify" section
+5. End with a bottom-line answer and your confidence level
+
+Cite sources for every factual claim. Never present something you couldn't verify as certain. If sources conflict, say so rather than picking one silently.`,
+    tools: ["Claude", "ChatGPT", "Perplexity"],
+    resources: [
+      {
+        title: "How to Build Notion AI Agents: Real Examples + 5-Step Guide",
+        type: "Article",
+        url: "https://buildtolaunch.substack.com/p/notion-ai-agents-examples-guide",
+      },
+      {
+        title: "Build Your First Custom Agent",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/build-your-first-custom-agent",
+      },
+    ],
+  },
+  {
+    id: "42",
+    title: "Build a Meeting Assistant Agent",
+    slug: "build-a-meeting-assistant-agent",
+    description:
+      "Set up an agent that handles the meeting lifecycle—capturing notes, extracting decisions and action items, and routing follow-ups—so the admin around meetings runs itself. This workflow covers designing it with the right human checkpoints.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 3-4 hours/week",
+    audience: ["Managers", "Project managers", "Operations leaders", "Anyone in many meetings"],
+    problem:
+      "Meetings generate a tail of admin: notes to write up, decisions to record, action items to assign and chase. Done manually it's hours a week and often gets dropped, so decisions and tasks slip through. The work is repetitive and rule-based—exactly the kind of thing that shouldn't need a human doing it from scratch each time.",
+    solution:
+      "A meeting assistant agent can take a transcript and produce the summary, extract decisions and action items with owners, and stage follow-ups—consistently, every time. The design question is where humans stay in the loop: the agent drafts and routes, but you approve anything it sends externally and verify owners before actions go out. That keeps the speed while preventing the agent from confidently misattributing or over-sending.",
+    steps: [
+      "Decide the agent's scope: summarize only, or also extract actions and stage follow-ups.",
+      "Choose a platform—meeting tools with AI, or an agent connected to your transcript source.",
+      "Instruct it to summarize, extract decisions/actions with owners, and flag anything ambiguous.",
+      "Set the human checkpoint: it drafts follow-ups, you approve before anything is sent externally.",
+      "Test on real transcripts and check attribution accuracy—agents misassign owners.",
+      "Roll out gradually, keeping approval on any outbound message until you trust the accuracy.",
+    ],
+    prompt: `You are a meeting assistant. Process this meeting and prepare the follow-up.
+
+Attendees: [names/roles]
+Transcript / notes:
+"""
+[PASTE TRANSCRIPT]
+"""
+
+Produce:
+1. A concise summary
+2. Decisions made, each attributed to who made it
+3. Action items, each with an owner and due date (mark [TBD] if unclear)
+4. Draft follow-up messages for each owner (for my review before sending)
+5. Anything ambiguous that I should clarify
+
+Do NOT treat follow-ups as sent—present them for my approval. Flag any owner or decision you're inferring rather than certain of.`,
+    tools: ["Claude", "ChatGPT", "Notion AI"],
+    resources: [
+      {
+        title: "Notion AI Agents Tutorial: Automate Your Work in 2026",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=-notA59M_-M",
+      },
+      {
+        title: "Get Started with Your Notion Agent",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/get-started-with-your-personal-agent-in-notion",
+      },
+    ],
+  },
+  {
+    id: "43",
+    title: "Build an Executive Assistant Agent",
+    slug: "build-an-executive-assistant-agent",
+    description:
+      "Set up an agent that helps run your day—triaging inputs, drafting responses, prepping for what's ahead, and surfacing what needs your attention—as a personal chief of staff. This workflow covers scoping it safely, starting with low-risk tasks.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 4-5 hours/week",
+    audience: ["Executives", "Managers", "Founders", "Busy professionals"],
+    problem:
+      "The coordination overhead of a busy role—triaging inputs, drafting routine responses, prepping for meetings, tracking what needs attention—consumes time that should go to actual work. Most people can't justify a human assistant, so it all falls on them, fragmenting focus across dozens of small administrative decisions a day.",
+    solution:
+      "An executive assistant agent can take on the low-risk, high-frequency coordination: summarizing your inputs, drafting responses you approve, prepping briefs for upcoming meetings, and flagging what needs you. The critical design principle is scope discipline—start it on read-and-draft tasks where mistakes are cheap, keep approval on anything that acts externally, and expand its remit only as it earns trust. Never let it send or commit on your behalf unsupervised early on.",
+    steps: [
+      "List your recurring admin tasks and rank them by how costly a mistake would be.",
+      "Start the agent on the lowest-risk ones: summarizing, drafting, prepping—never sending.",
+      "Give it context about your priorities, preferences, and voice so its drafts fit.",
+      "Keep a hard rule: it proposes, you approve anything that leaves your hands.",
+      "Review its work daily at first; note where it's reliable and where it isn't.",
+      "Expand its scope only into areas it's proven trustworthy—slowly.",
+    ],
+    prompt: `You are my executive assistant. Help me handle my day. Start by helping me triage and prepare—do not send or commit to anything on my behalf.
+
+Here's what's on my plate:
+"""
+[PASTE INPUTS: emails to triage, meetings coming up, tasks, decisions pending]
+"""
+
+My priorities right now: [context]
+My communication style: [brief description]
+
+Do the following:
+1. Triage: what needs my attention today vs. what can wait
+2. Draft responses to routine items (for my approval)
+3. Prep: brief me on anything I have coming up
+4. Flag anything that needs a decision only I can make
+
+Present everything for my review. Never treat a draft as sent or a decision as made.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "Notion Custom Agents: Full Tutorial, Use Cases & Pricing",
+        type: "Guide",
+        url: "https://matthiasfrank.de/en/notion-custom-agents-full-tutorial-use-cases-pricing-changes/",
+      },
+      {
+        title: "Build Your First Custom Agent",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/build-your-first-custom-agent",
+      },
+    ],
+  },
+  {
+    id: "44",
+    title: "Build a Customer Support Agent",
+    slug: "build-a-customer-support-agent",
+    description:
+      "Set up an agent that drafts accurate support responses from your knowledge base and past tickets—handling common questions fast while keeping a human on anything sensitive. This workflow covers grounding it in real answers and setting escalation rules.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 5-8 hours/week",
+    audience: ["Support leads", "Operations leaders", "Founders", "Customer experience teams"],
+    problem:
+      "Support volume is dominated by repetitive questions that have known answers, but each still needs someone to write a response. It's slow, it doesn't scale, and response times suffer. Yet naive automation risks confidently wrong answers to customers—which is worse than slow—so support automation has to be grounded and carefully bounded.",
+    solution:
+      "A support agent grounded in your actual knowledge base and past resolved tickets can draft accurate responses to common questions, with a human approving before send early on and clear rules for escalating anything sensitive, uncertain, or high-stakes. The design priority is accuracy over coverage: it should answer what it knows well and hand off everything else, never guess. Done right it deflects volume without risking trust.",
+    steps: [
+      "Assemble the ground truth: your knowledge base, docs, and past resolved tickets.",
+      "Instruct the agent to answer ONLY from that material and to escalate when unsure.",
+      "Define escalation rules: sensitive topics, angry customers, anything not clearly covered.",
+      "Start with the agent drafting responses for human approval, not auto-sending.",
+      "Test against real past tickets and measure accuracy before expanding.",
+      "Keep humans on escalations permanently, and monitor for drift as your product changes.",
+    ],
+    prompt: `You are a customer support agent. Draft a response to this ticket, grounded only in the reference material provided.
+
+Reference material (knowledge base / past resolutions):
+"""
+[PASTE YOUR KB / DOCS / RESOLVED TICKETS]
+"""
+
+Customer ticket:
+"""
+[PASTE THE TICKET]
+"""
+
+Instructions:
+1. Answer ONLY using the reference material—do not invent policies or facts
+2. If the answer isn't clearly in the material, say so and recommend escalation to a human
+3. Escalate anyway if the customer seems upset, or the issue is sensitive/high-stakes
+4. Match a helpful, professional tone
+
+Draft for my approval. When in doubt, escalate rather than guess—a wrong answer is worse than a handoff.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "How to Build Notion AI Agents: Real Examples + 5-Step Guide",
+        type: "Article",
+        url: "https://buildtolaunch.substack.com/p/notion-ai-agents-examples-guide",
+      },
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+    ],
+  },
+  {
+    id: "45",
+    title: "Build a Sales Research Agent",
+    slug: "build-a-sales-research-agent",
+    description:
+      "Set up an agent that researches prospects and accounts before calls—pulling company context, recent news, and relevant talking points into a prep brief—so you walk in informed without an hour of manual digging. This workflow covers designing accurate, verifiable prep.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 3-5 hours/week",
+    audience: ["Sales professionals", "Account executives", "Founders selling", "Business development"],
+    problem:
+      "Good sales prep means researching each prospect—their company, recent developments, likely needs, relevant hooks—but done manually it's an hour per account that reps rarely have. So calls happen under-prepared, or prep gets skipped and the pitch lands generic. The research is patterned enough to systematize but too time-consuming to do by hand at volume.",
+    solution:
+      "A sales research agent can gather and structure account prep: company overview, recent news, potential pain points, and conversation hooks—into a brief you skim before the call. Because it will surface facts you'll repeat to a prospect, the design must require sources and flag anything unverified, so you don't walk in citing something that's wrong. You bring the selling judgment; the agent removes the manual digging.",
+    steps: [
+      "Define what your ideal prep brief contains—the fields that actually help you sell.",
+      "Use an agent with web-search capability so it can pull current company info.",
+      "Instruct it to research the account and produce a structured brief with sourced facts.",
+      "Require citations for anything you might repeat to the prospect, and flag the unverified.",
+      "Verify key claims before the call—especially recent news and named facts.",
+      "Turn it into a repeatable template you run before every meeting.",
+    ],
+    prompt: `You are a sales research agent. Prepare a prospect brief for an upcoming call.
+
+Prospect / account: [company and/or person]
+What I sell: [your product/service]
+Call goal: [discovery / demo / etc.]
+
+Produce a prep brief with:
+1. Company overview (what they do, size, market)
+2. Recent news or developments relevant to my outreach, with sources
+3. Likely pain points my offering could address
+4. Conversation hooks and smart questions to ask
+5. Anything I should verify before citing it to them
+
+Cite sources for factual claims. Clearly flag anything you couldn't verify—I don't want to repeat something wrong to a prospect.`,
+    tools: ["Claude", "ChatGPT", "Perplexity"],
+    resources: [
+      {
+        title: "Build Your First Custom Agent",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/build-your-first-custom-agent",
+      },
+      {
+        title: "Zapier – Notion Integrations",
+        type: "Tool",
+        url: "https://zapier.com/apps/notion/integrations",
+      },
+    ],
+  },
+  {
+    id: "46",
+    title: "Build a Competitive Intelligence Agent",
+    slug: "build-a-competitive-intelligence-agent",
+    description:
+      "Set up an agent that tracks competitors—monitoring their announcements, changes, and positioning—and digests it into periodic updates, so you stay informed without manually checking a dozen sources. This workflow covers scoping accurate, sourced monitoring.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 2-4 hours/week",
+    audience: ["Product managers", "Founders", "Marketing leaders", "Strategy teams"],
+    problem:
+      "Keeping tabs on competitors is important and perpetually deprioritized. Manually checking competitor sites, news, and channels is tedious, so it happens sporadically and you find out about a major move late. The monitoring is repetitive and rule-based, but stitching it together across sources by hand doesn't scale.",
+    solution:
+      "A competitive intelligence agent can monitor the sources you specify, gather what's changed, and digest it into a periodic sourced update—so you learn about competitor moves promptly without the manual checking. The design emphasis is on accuracy and sourcing: it should report what it can verify with links, distinguish confirmed news from speculation, and avoid inventing developments. You interpret the strategic implications; it handles the watching.",
+    steps: [
+      "List the competitors and the specific sources worth monitoring (sites, blogs, news, channels).",
+      "Define what matters: product launches, pricing changes, positioning shifts, hires.",
+      "Use a web-search-capable agent to gather and digest changes into a sourced update.",
+      "Require links for every claimed development and separate confirmed from rumored.",
+      "Set a cadence (weekly/monthly) and review the digests for the strategic 'so what.'",
+      "Verify anything significant before acting on it—competitive moves get misreported.",
+    ],
+    prompt: `You are a competitive intelligence agent. Produce a competitor update.
+
+Competitors to track: [list]
+What I care about: [launches, pricing, positioning, hiring, etc.]
+Sources to prioritize: [their sites, blogs, reputable news]
+
+Produce:
+1. Notable developments per competitor, each with a source link
+2. A clear split between confirmed news and speculation/rumor
+3. What each development might mean for us (brief)
+4. Anything that needs verification before I rely on it
+
+Only report developments you can source. Do not invent or infer changes that aren't supported. Flag when something is unconfirmed.`,
+    tools: ["Claude", "ChatGPT", "Perplexity"],
+    resources: [
+      {
+        title: "How to Build Notion AI Agents: Real Examples + 5-Step Guide",
+        type: "Article",
+        url: "https://buildtolaunch.substack.com/p/notion-ai-agents-examples-guide",
+      },
+      {
+        title: "n8n – AI Automation Workflows (with Notion)",
+        type: "Tool",
+        url: "https://n8n.io/workflows/categories/ai/",
+      },
+    ],
+  },
+  {
+    id: "47",
+    title: "Build a Data Analysis Agent",
+    slug: "build-a-data-analysis-agent",
+    description:
+      "Set up an agent that explores a dataset, runs the analysis, and explains what it found in plain language—so you can ask questions of your data without writing every query yourself. This workflow covers verifying its work so you don't act on wrong numbers.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 3-5 hours per analysis",
+    audience: ["Analysts", "Operations leaders", "Founders", "Data-literate managers"],
+    problem:
+      "Getting answers from data usually means someone who can write queries or formulas—a bottleneck when the people with the questions can't do the analysis themselves. Even for the analytically capable, exploratory analysis is time-consuming. But AI-run analysis carries a real risk: a confident, wrong number is worse than no number, so verification is non-negotiable.",
+    solution:
+      "A data analysis agent can take a dataset and a question, explore it, run the analysis, and explain the findings in plain language—letting non-analysts interrogate data directly. The essential design discipline is verifiability: it should show its work (the logic, the calculations), state its assumptions, and flag data-quality issues, so you can check the reasoning before trusting the result. Treat it as a fast analyst whose work you spot-check, not an oracle.",
+    steps: [
+      "Prepare the dataset and be clear about the question you're asking.",
+      "Use a tool with code/data-analysis capability (Claude, ChatGPT with data analysis).",
+      "Ask it to explore the data, answer your question, and show its working and assumptions.",
+      "Have it flag data-quality issues—missing values, outliers, small samples—that affect the answer.",
+      "Verify the logic and spot-check key numbers before acting; agents make calculation and interpretation errors.",
+      "For recurring analyses, save the approach as a repeatable template.",
+    ],
+    prompt: `You are a data analysis agent. Analyze this data and explain what you find—showing your work.
+
+The data:
+"""
+[PASTE OR DESCRIBE/ATTACH THE DATASET]
+"""
+
+My question: [what you want to know]
+
+Do the following:
+1. Explore the data and note its shape and any quality issues (missing values, outliers, small sample)
+2. Answer my question, showing the calculations and logic you used
+3. State any assumptions you made
+4. Give the plain-language takeaway
+5. Flag anything I should verify or be cautious about
+
+Show your reasoning so I can check it. Don't present an uncertain result as definitive—call out where the data doesn't fully support a conclusion.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "Notion Database Automations: The Complete Guide",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-database-automations-the-complete-guide/",
+      },
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
+      },
+    ],
+  },
+  {
+    id: "48",
+    title: "Build a Content Workflow Agent",
+    slug: "build-a-content-workflow-agent",
+    description:
+      "Set up an agent that moves content through its stages—from brief to draft to formatted, platform-ready output—so your publishing pipeline runs with less manual handoff. This workflow covers keeping editorial judgment and brand voice in human hands.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 4-6 hours/week",
+    audience: ["Content marketers", "Founders", "Marketing teams", "Creators"],
+    problem:
+      "Content production is a multi-stage pipeline—brief, draft, edit, format, adapt per platform—with manual handoffs at every step. It's slow and repetitive, and the mechanical parts (formatting, reformatting for each channel) eat time that should go to ideas and quality. But fully automated content tends to be generic and off-brand, so the human has to stay where it matters.",
+    solution:
+      "A content workflow agent can handle the mechanical stages—turning a brief into a structured draft, formatting, adapting one piece for multiple platforms—while you keep control of the editorial judgment and brand voice. The design principle is human-owns-quality: the agent accelerates the pipeline's repetitive parts, but a person shapes the ideas, approves the voice, and does the final edit before anything publishes. That keeps speed without the generic-AI-slop problem.",
+    steps: [
+      "Map your content pipeline stages and identify which are mechanical vs. judgment-based.",
+      "Give the agent your brand voice guidelines and examples so drafts start closer to right.",
+      "Have it take a brief to a structured first draft—which you then edit for substance and voice.",
+      "Use it for the mechanical work: formatting, and adapting one piece across platforms.",
+      "Keep a human approval gate before anything publishes—voice and accuracy are yours to own.",
+      "Refine the voice guidance over time as you see where its drafts drift generic.",
+    ],
+    prompt: `You are a content workflow agent. Help move this content through its stages. I own the editorial judgment and voice—you handle structure and mechanics.
+
+Brand voice guidelines: [describe, with examples]
+The brief:
+"""
+[PASTE THE CONTENT BRIEF]
+"""
+Stage I need: [first draft / format / adapt for platforms]
+
+For a first draft: produce a structured draft in my brand voice that I'll edit.
+For formatting/adapting: reformat the provided content for [platforms].
+
+Stay close to my brand voice—flag where you're unsure of tone. Don't publish or treat anything as final; everything comes back to me for approval. Avoid generic filler.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "Zapier – Notion Integrations",
+        type: "Tool",
+        url: "https://zapier.com/apps/notion/integrations",
+      },
+      {
+        title: "Make – Notion Integration",
+        type: "Tool",
+        url: "https://www.make.com/en/integrations/notion",
+      },
+    ],
+  },
+  {
+    id: "49",
+    title: "Build a Document Review Agent",
+    slug: "build-a-document-review-agent",
+    description:
+      "Set up an agent that reviews documents against a checklist or standard—flagging issues, gaps, and risks for a human to confirm—so first-pass review scales without a person reading every line. This workflow covers using it as a flagging aid, never the final word.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 3-5 hours/week",
+    audience: ["Operations leaders", "Consultants", "Legal-adjacent roles", "Quality reviewers"],
+    problem:
+      "Reviewing documents—contracts, submissions, reports—against a standard is careful, tiring work that doesn't scale. A human has to read every line to catch the missing clause, the inconsistency, the risk. Volume forces a choice between slow, thorough review and fast, error-prone skimming. The first-pass flagging is patterned enough to assist, but the stakes demand human confirmation.",
+    solution:
+      "A document review agent can do a structured first pass: checking a document against a checklist or standard you provide, flagging potential issues, gaps, and inconsistencies for a human to confirm. It's a flagging aid that makes human review faster and more consistent—it catches candidates, you make the calls. The design rule is absolute: it never gives the final sign-off on anything consequential, especially anything legal or compliance-related. It surfaces; humans decide.",
+    steps: [
+      "Define the standard: the checklist, criteria, or requirements to review against.",
+      "Provide a document and ask the agent to check it against that standard.",
+      "Have it flag issues, gaps, and inconsistencies—with the specific location of each.",
+      "Treat every flag as a candidate for human review, not a verdict.",
+      "Confirm each flag yourself; the agent will both miss things and raise false positives.",
+      "Never let it be the final approver on legal, compliance, or high-stakes documents.",
+    ],
+    prompt: `You are a document review agent doing a FIRST-PASS review for a human to confirm. You flag; I decide.
+
+Review standard / checklist:
+"""
+[PASTE YOUR CHECKLIST OR CRITERIA]
+"""
+
+Document to review:
+"""
+[PASTE THE DOCUMENT]
+"""
+
+Do the following:
+1. Check the document against each item in the standard
+2. Flag issues, gaps, and inconsistencies—quote the relevant text and its location
+3. Note anything that looks like a risk or omission
+4. Separate high-confidence flags from things I should look at just in case
+
+These are candidates for my review, not conclusions. You may miss things and raise false positives—I will confirm every flag. Do not give final approval on anything.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Notion Custom Agents: Full Tutorial, Use Cases & Pricing",
+        type: "Guide",
+        url: "https://matthiasfrank.de/en/notion-custom-agents-full-tutorial-use-cases-pricing-changes/",
+      },
+    ],
+  },
+  {
+    id: "50",
+    title: "Build a Knowledge Assistant Agent",
+    slug: "build-a-knowledge-assistant-agent",
+    description:
+      "Set up an agent that answers questions from your team's own documents and knowledge base—so people get accurate, sourced answers instantly instead of searching or asking around. This workflow covers grounding it in your content and citing sources.",
+    category: "AI Agents",
+    difficulty: "Advanced",
+    timeSaved: "Save 3-5 hours/week across the team",
+    audience: ["Operations leaders", "Knowledge managers", "Team leads", "Founders scaling a team"],
+    problem:
+      "The knowledge exists—in docs, wikis, past decisions—but finding it means searching a system that doesn't surface answers well, or interrupting the one person who knows. As teams grow, the same questions get asked repeatedly and answered inconsistently. The knowledge is there; the retrieval is broken.",
+    solution:
+      "A knowledge assistant agent grounded in your team's actual documents can answer questions directly, with citations back to the source—turning a static knowledge base into something you can just ask. The design essential is grounding: it must answer only from your content, cite where each answer comes from, and say 'not found' rather than invent. That's what makes it trustworthy enough to reduce the repeat-question load instead of adding a new source of wrong answers.",
+    steps: [
+      "Assemble and organize the source content: docs, wiki, past decisions, FAQs.",
+      "Set up an agent that can reference that content (a tool that connects to your knowledge base).",
+      "Instruct it to answer ONLY from the sources and to cite where each answer comes from.",
+      "Require it to say 'not found in our docs' rather than guess when something isn't covered.",
+      "Test with real questions your team asks; check answers and citations for accuracy.",
+      "Keep the source content current—the assistant is only as good as what it's grounded in.",
+    ],
+    prompt: `You are a knowledge assistant grounded in our team's documents. Answer only from the provided sources, and cite them.
+
+Our knowledge sources:
+"""
+[PASTE OR CONNECT YOUR DOCS / WIKI / FAQS]
+"""
+
+Question:
+"""
+[THE QUESTION]
+"""
+
+Instructions:
+1. Answer using ONLY the provided sources
+2. Cite which document/section each part of your answer comes from
+3. If the answer isn't in the sources, say "not found in our docs"—do not guess or use outside knowledge
+4. If sources conflict or are outdated, point that out
+
+Accuracy and honesty matter more than completeness. A cited "I don't know" is better than a confident wrong answer.`,
+    tools: ["Claude", "ChatGPT", "Notion AI"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Build Your First Custom Agent",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/build-your-first-custom-agent",
+      },
+    ],
   }
 ];
 export function getWorkflowBySlug(slug: string): Workflow | undefined {
   return workflows.find((workflow) => workflow.slug === slug);
 }
+
 
