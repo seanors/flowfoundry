@@ -1150,8 +1150,514 @@ Transcript:
       },
     ],
   },
-];
+{
+    id: "31",
+    title: "Map Business Processes with AI",
+    slug: "map-business-processes-with-ai",
+    description:
+      "Turn a process that only exists in people's heads into a clear, visual map of every step, handoff, and decision point—so you can see how work actually flows before you try to improve it. This workflow gets the as-is picture on paper fast.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 3-4 hours per process",
+    audience: ["Operations leaders", "Process owners", "Consultants", "Team leads"],
+    problem:
+      "You can't improve a process you can't see, and most processes are never mapped—they live as scattered knowledge across the people who happen to do them. Reconstructing the real flow, with all its handoffs and exceptions, is slow and easy to get wrong when you're working from memory and half-remembered steps.",
+    solution:
+      "AI can turn a rough description of how work gets done into a structured process map: steps in sequence, who owns each, where handoffs happen, and where decisions branch. You describe the process as you understand it; AI organizes it into a clear flow and, crucially, asks about the gaps and exceptions you'd otherwise skip. The result is an accurate as-is map you can then analyze.",
+    steps: [
+      "Describe the process end to end as you understand it—roughly is fine.",
+      "Ask AI to structure it into sequential steps with owners and handoff points.",
+      "Have it flag decision points, branches, and the exceptions you didn't mention.",
+      "Fill the gaps it surfaces—the exceptions are usually where the real problems hide.",
+      "Validate the map with the people who actually do the work.",
+      "Use the confirmed map as the baseline for any improvement work.",
+    ],
+    prompt: `Help me map this business process clearly.
 
+How the process works, as I understand it:
+"""
+[DESCRIBE THE PROCESS END TO END]
+"""
+
+Produce:
+1. The process as sequential steps, each with the role/owner responsible
+2. Handoff points (where work passes between people or teams)
+3. Decision points and where the process branches
+4. Questions about gaps, exceptions, or edge cases I didn't mention
+
+Where the flow is unclear or a step seems to be missing, ask me rather than guessing. The goal is an accurate picture of how it actually works today, not how it should work.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Notion Database Automations: Complete 2026 Guide (12 Examples)",
+        type: "Article",
+        url: "https://sync2sheets.com/blog/notion-database-automations/",
+      },
+    ],
+  },
+  {
+    id: "32",
+    title: "Automate Recurring Reports with AI",
+    slug: "automate-recurring-reports-with-ai",
+    description:
+      "Build a repeatable reporting pipeline—define the structure once, then regenerate the report each period from fresh data in minutes instead of rebuilding it by hand. This workflow is about the reusable system, not a one-off write-up.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-4 hours per reporting cycle",
+    audience: ["Operations leaders", "Analysts", "Team leads", "Anyone who owns a recurring report"],
+    problem:
+      "Recurring reports—weekly ops, monthly metrics, quarterly summaries—eat the same hours every cycle. You rebuild the same structure, re-pull the same numbers, and re-write the same kind of narrative from scratch, even though only the data changed. The repetition is pure overhead, and rushing it under deadline means inconsistency period to period.",
+    solution:
+      "AI lets you define the report once and regenerate it each cycle. You build a reusable template and prompt that specify the structure, the sections, and the narrative style; then each period you feed in fresh data and get a consistent draft you refine. You own the analysis and the judgment calls; AI removes the rebuild-from-scratch tax and keeps every edition consistent.",
+    steps: [
+      "Define the report's fixed structure: sections, metrics, and the narrative style you want each time.",
+      "Build a reusable prompt/template that encodes that structure.",
+      "Each cycle, feed in the period's data and generate a consistent draft.",
+      "Review the numbers and add the analysis only you can provide—the 'so what' behind the data.",
+      "Keep the template versioned so improvements carry forward each period.",
+      "Pair it with a light automation (Zapier/Make) if the data pull can be automated too.",
+    ],
+    prompt: `Help me build a reusable template for a recurring report so I can regenerate it each period.
+
+The report: [what it is, how often, who reads it]
+The data I have each cycle:
+"""
+[PASTE A SAMPLE PERIOD'S DATA]
+"""
+
+Do two things:
+1. Design a fixed report structure (sections, which metrics go where, narrative style) that I'll reuse every period
+2. Using this period's data, produce a first draft in that structure
+
+Keep the structure consistent and reusable. Flag where I'll need to add human analysis (the "why" behind the numbers) versus what can be generated from data each time.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "The Ultimate Guide to Notion Automations & the API",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-automations/",
+      },
+      {
+        title: "Zapier – Notion Integrations",
+        type: "Tool",
+        url: "https://zapier.com/apps/notion/integrations",
+      },
+    ],
+  },
+  {
+    id: "33",
+    title: "Analyze Customer Feedback with AI",
+    slug: "analyze-customer-feedback-with-ai",
+    description:
+      "Turn hundreds of reviews, survey responses, and support tickets into clear themes, sentiment, and prioritized actions—instead of a spreadsheet no one has time to read. This workflow finds the signal in feedback at a scale humans can't manually process.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 4-6 hours per analysis",
+    audience: ["Operations leaders", "Product managers", "Customer experience teams", "Founders"],
+    problem:
+      "Customer feedback piles up faster than anyone can read it: reviews, NPS comments, survey responses, support tickets. The insight is in there, but manually reading and coding hundreds of responses is a job nobody has time for, so feedback goes uanalyzed and decisions get made on gut feel or the loudest complaint.",
+    solution:
+      "AI is genuinely strong at reading large volumes of open-text feedback and surfacing structure: recurring themes, sentiment, and which issues show up most. You give it the raw responses and it clusters them, quantifies roughly how common each theme is, and pulls representative examples. You bring the business judgment about what to act on; AI does the reading-and-coding that doesn't scale by hand.",
+    steps: [
+      "Gather the raw feedback into one place—reviews, survey text, ticket summaries.",
+      "Ask AI to identify recurring themes and roughly how common each is.",
+      "Have it assess sentiment and pull representative quotes for each theme.",
+      "Separate signal from noise—one angry outlier isn't a trend; a quiet recurring theme might be.",
+      "Prioritize themes by frequency and business impact.",
+      "Turn the top themes into specific, owned actions and track whether they move the feedback.",
+    ],
+    prompt: `Analyze this customer feedback and find the signal.
+
+Raw feedback (reviews / survey responses / ticket summaries):
+"""
+[PASTE FEEDBACK]
+"""
+
+Produce:
+1. The main recurring themes, ordered by roughly how frequently they appear
+2. Overall sentiment, and sentiment per theme
+3. A representative quote or two for each theme
+4. Which themes look like genuine patterns versus one-off outliers
+5. The 3 issues that, if fixed, would likely matter most
+
+Base themes on what's actually in the feedback—don't invent issues that aren't there. Note if the sample is too small to draw firm conclusions.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
+      },
+    ],
+  },
+  {
+    id: "34",
+    title: "Write Decision Proposals with AI",
+    slug: "write-decision-proposals-with-ai",
+    description:
+      "Turn a recommendation into a clear decision document that drives action—options weighed, tradeoffs explicit, and a recommendation stakeholders can actually say yes to. This workflow is forward-looking: it helps make a decision, not just record one.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-3 hours per proposal",
+    audience: ["Operations leaders", "Managers", "Consultants", "Anyone proposing a change"],
+    problem:
+      "Getting a decision made often requires a document: here's the problem, here are the options, here's what I recommend and why. Writing one that's genuinely clear—fair to each option, explicit about tradeoffs, easy for a busy decision-maker to act on—is real work, and a weak version stalls the decision or invites endless back-and-forth.",
+    solution:
+      "AI helps structure a persuasive, balanced decision proposal. From your problem and options, it drafts a document that lays out the context, weighs each option's tradeoffs fairly, and frames a clear recommendation with reasoning. You supply the judgment about what to recommend; AI ensures the case is well-organized, the tradeoffs are explicit, and the ask is unambiguous—so the decision actually gets made.",
+    steps: [
+      "Define the decision that needs making and who needs to make it.",
+      "Lay out the options you're considering and what you currently favor.",
+      "Ask AI to draft a decision document: context, options with tradeoffs, recommendation.",
+      "Make sure each option is represented fairly—a proposal that strawmans alternatives loses trust.",
+      "Sharpen the recommendation and the specific ask so the decision-maker knows exactly what to approve.",
+      "Circulate, and keep the reasoning so the decision can be revisited later if needed.",
+    ],
+    prompt: `Help me write a decision proposal that will actually drive a decision.
+
+The decision to be made: [what needs deciding, and by whom]
+The options I'm considering:
+"""
+[LIST THE OPTIONS]
+"""
+What I currently lean toward and why: [your view]
+
+Draft a decision document with:
+1. Context / the problem this decision addresses
+2. Each option, with its pros, cons, and key tradeoffs presented fairly
+3. A clear recommendation with the reasoning behind it
+4. The specific ask (what you need the decision-maker to approve)
+5. Risks or open questions
+
+Represent every option fairly, including the ones I'm not recommending. Keep it concise enough that a busy stakeholder will actually read it.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Notion for Project Management: Complete Guide + Template",
+        type: "Article",
+        url: "https://www.notioneverything.com/blog/notion-project-management",
+      },
+    ],
+  },
+  {
+    id: "35",
+    title: "Improve Workflows with AI",
+    slug: "improve-workflows-with-ai",
+    description:
+      "Take a process that works but drags—too many steps, too much waiting, too much rework—and find where the time actually goes and what to streamline. This workflow uses AI to spot the bottlenecks and redundancies you've stopped noticing.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 3-4 hours of analysis",
+    audience: ["Operations leaders", "Process owners", "Team leads", "Consultants"],
+    problem:
+      "Processes accrete cruft over time: steps added for a reason that no longer applies, approvals that slow everything without adding safety, handoffs that create waiting. The people inside the process stop seeing the waste because it's just 'how we do it.' Finding what to cut or streamline takes fresh, structured analysis that's hard to do from the inside.",
+    solution:
+      "AI brings an outside, structured eye to a process you're too close to. Given the current flow, it can flag likely bottlenecks, redundant steps, unnecessary handoffs, and places automation would help—asking the 'why does this step exist' questions that surface waste. You decide what's actually safe to change; AI does the systematic critique that's hard to run on your own process.",
+    steps: [
+      "Describe the current process, including roughly how long each part takes.",
+      "Ask AI to identify bottlenecks, redundant steps, and unnecessary handoffs.",
+      "Have it question why each slow or manual step exists—some will have reasons, some won't.",
+      "Separate the safe-to-cut from the there-for-a-reason (compliance, risk, quality).",
+      "Prioritize changes by effort versus time saved.",
+      "Pilot the streamlined version on a small scale before rolling it out.",
+    ],
+    prompt: `Help me improve this process. Be a critical outside eye—I'm too close to it.
+
+Current process (with rough timing per step):
+"""
+[DESCRIBE THE PROCESS AND HOW LONG EACH PART TAKES]
+"""
+
+Analyze it for:
+1. Bottlenecks—where does work pile up or wait?
+2. Redundant or low-value steps—what could be cut?
+3. Unnecessary handoffs or approvals
+4. Steps that could be automated
+5. For each slow/manual step, ask why it exists
+
+Then suggest a streamlined version, ranked by effort vs. time saved. Flag where a step might exist for a real reason (compliance, quality, risk) that I should confirm before removing.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "Notion Database Automations: Complete 2026 Guide (12 Examples)",
+        type: "Article",
+        url: "https://sync2sheets.com/blog/notion-database-automations/",
+      },
+      {
+        title: "The Ultimate Guide to Notion Automations & the API",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-automations/",
+      },
+    ],
+  },
+  {
+    id: "36",
+    title: "Build Dashboards with AI",
+    slug: "build-dashboards-with-ai",
+    description:
+      "Figure out what to actually put on an operational dashboard—the metrics that drive decisions, not vanity numbers—and how to structure it so people use it. This workflow helps you design the dashboard before you build it.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 3-4 hours of design",
+    audience: ["Operations leaders", "Analysts", "Team leads", "Founders"],
+    problem:
+      "Most dashboards fail by showing everything measurable rather than what matters. They become wallpaper—full of numbers no one acts on—because no one thought hard about which metrics actually drive decisions and how to lay them out for the people using them. The design thinking gets skipped in the rush to build.",
+    solution:
+      "AI helps with the design thinking before you touch a BI tool. Given what the dashboard is for and who uses it, it can propose the handful of metrics that genuinely support decisions, how to group them, and what to leave off. It can also help translate those into the right chart types and even draft formulas or queries. You provide the business context; AI structures a dashboard people will actually use.",
+    steps: [
+      "Define the dashboard's purpose: what decisions should it support, and for whom?",
+      "Ask AI to propose the key metrics that serve those decisions—and what to exclude.",
+      "Have it group the metrics logically and suggest chart types for each.",
+      "Pressure-test against vanity metrics: does each number change a decision? If not, cut it.",
+      "Get help drafting the formulas, queries, or setup for your specific tool.",
+      "Build it, then check after a few weeks whether people actually use it—and prune what they don't.",
+    ],
+    prompt: `Help me design an operational dashboard before I build it.
+
+Purpose: [what decisions it should support]
+Who uses it: [audience and how often]
+Data available: [what you can measure]
+
+Produce:
+1. The key metrics that genuinely support these decisions (and why each earns a place)
+2. Metrics to deliberately leave OFF (vanity or distracting numbers)
+3. A logical grouping/layout for the dashboard
+4. Suggested chart type for each metric
+5. Any derived metrics or calculations worth adding
+
+Bias toward fewer, decision-driving metrics over comprehensiveness. For each metric, be able to answer "what would someone do differently based on this?"`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "Notion Database Automations: The Complete Guide",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-database-automations-the-complete-guide/",
+      },
+      {
+        title: "How to Use Notion: 2026 Guide to Setup & Productivity",
+        type: "Article",
+        url: "https://everhour.com/blog/how-to-use-notion/",
+      },
+    ],
+  },
+  {
+    id: "37",
+    title: "Run Operational Reviews with AI",
+    slug: "run-operational-reviews-with-ai",
+    description:
+      "Prepare and structure a recurring operational review—pull the story out of the metrics, surface what needs attention, and frame the discussion so the meeting drives decisions. This workflow turns a data dump into a focused review.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-3 hours per review",
+    audience: ["Operations leaders", "Team leads", "Managers", "Founders"],
+    problem:
+      "Operational reviews often devolve into reading numbers aloud. Prep means assembling metrics from everywhere, and without a clear narrative the meeting becomes a status recital instead of a decision forum. The work of turning raw data into 'here's what's happening and what needs a decision' is exactly what gets shortchanged under time pressure.",
+    solution:
+      "AI helps you prep a review that drives decisions. Given the period's metrics and context, it can surface what changed and why it matters, flag what's off-track, and structure an agenda around the things that actually need discussion—not a walk through every number. You bring the operational judgment; AI turns the data into a narrative and a focused agenda so the meeting is about decisions, not recitation.",
+    steps: [
+      "Gather the period's metrics and any relevant context or events.",
+      "Ask AI to surface what changed, what's off-track, and what looks like it needs attention.",
+      "Have it draft a review structure that leads with what needs discussion, not every metric.",
+      "Add your operational context—the story behind the numbers that data alone won't show.",
+      "Frame the specific decisions or discussions the review should produce.",
+      "After the review, capture decisions and actions (your decision-log workflow fits here).",
+    ],
+    prompt: `Help me prepare an operational review that drives decisions, not just recites numbers.
+
+This period's metrics and context:
+"""
+[PASTE METRICS AND ANY RELEVANT EVENTS/CONTEXT]
+"""
+
+Produce:
+1. What meaningfully changed this period, and why it matters
+2. What's off-track or needs attention
+3. A review agenda that leads with what needs discussion/decisions—not a walk through every metric
+4. The specific decisions or discussions this review should produce
+5. Questions worth raising with the team
+
+Focus the agenda on exceptions and decisions. Flag where you'd want more context from me to interpret a number correctly.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "Notion Project Management Guide: Techniques to Optimize Workflow",
+        type: "Article",
+        url: "https://everhour.com/blog/notion-project-management/",
+      },
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+    ],
+  },
+  {
+    id: "38",
+    title: "Document and Analyze Processes with AI",
+    slug: "document-and-analyze-processes-with-ai",
+    description:
+      "Capture how a process actually works and analyze it for problems in one pass—the as-is flow, the pain points, and where it breaks down. This workflow pairs documentation with diagnosis, distinct from writing step-by-step SOPs for execution.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 3-4 hours per process",
+    audience: ["Operations leaders", "Process analysts", "Consultants", "Team leads"],
+    problem:
+      "There's a gap between knowing a process exists and understanding how it really works—including where it fails. Documentation efforts often capture the idealized version, missing the workarounds, the exceptions, and the friction that people have quietly normalized. Without that honest picture, you can't diagnose what's actually wrong.",
+    solution:
+      "AI helps you both document the real process and analyze it in the same pass. It structures your description into a clear record of how work actually flows, then probes for pain points, exceptions, and breakdowns—the honest as-is, not the org-chart fiction. This is diagnostic documentation: the goal isn't execution instructions (that's an SOP) but an accurate, analyzed picture you can improve from.",
+    steps: [
+      "Describe the process honestly, including the workarounds and the parts that annoy people.",
+      "Ask AI to document the real flow and simultaneously probe for pain points and exceptions.",
+      "Answer its questions about where things break down or get worked around.",
+      "Get a clear as-is record plus a list of the friction points and their likely causes.",
+      "Validate with the people in the process—they'll confirm or correct the pain points.",
+      "Use the analysis to decide what to fix (pairs with the improve-workflows workflow).",
+    ],
+    prompt: `Help me document AND analyze this process—the honest version, including where it breaks.
+
+How the process really works (include workarounds and annoyances):
+"""
+[DESCRIBE THE PROCESS HONESTLY]
+"""
+
+Do two things:
+1. Document the actual as-is flow clearly (steps, owners, handoffs)
+2. Analyze it: where are the pain points, exceptions, breakdowns, and workarounds? What's the likely cause of each?
+
+Probe me with questions about where things go wrong or get worked around—those are the parts I'm most likely to under-report. The goal is an accurate, diagnostic picture, not polished execution instructions.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "How to write a standard operating procedure (SOP): guide with examples",
+        type: "Guide",
+        url: "https://www.mintlify.com/library/how-to-write-standard-operating-procedure",
+      },
+      {
+        title: "Notion Database Automations: Complete 2026 Guide (12 Examples)",
+        type: "Article",
+        url: "https://sync2sheets.com/blog/notion-database-automations/",
+      },
+    ],
+  },
+  {
+    id: "39",
+    title: "Improve Team Communication Systems with AI",
+    slug: "improve-team-communication-systems-with-ai",
+    description:
+      "Fix the team-level communication that's not working—unclear channels, meetings that could be updates, information that doesn't reach the right people—by designing better cadences and structures. This workflow is about team systems, not individual conversations.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-3 hours/week across the team",
+    audience: ["Operations leaders", "Managers", "Team leads", "Founders"],
+    problem:
+      "As teams grow, communication that used to just happen stops working: people don't know where to post what, meetings multiply, updates get lost, and the same questions circulate. It's not any one person's fault—it's a missing system. But designing communication cadences and channel norms is a task that rarely gets deliberate attention.",
+    solution:
+      "AI can help design team communication systems: which channels for what, what cadence of updates and meetings actually serves the team, and how to make sure information reaches the right people without drowning everyone. You describe your team's current friction; AI proposes structures and norms—async updates, meeting rhythms, channel conventions—that you adapt. This is about the system, distinct from coaching an individual tricky conversation.",
+    steps: [
+      "Describe your team's current communication friction: what's unclear, redundant, or getting lost.",
+      "Ask AI to diagnose the likely structural causes, not just symptoms.",
+      "Have it propose channel norms, meeting cadences, and update rhythms suited to your team.",
+      "Adapt the proposals to your team's culture and tools—no system survives if it fights the culture.",
+      "Roll out a few changes at a time and communicate the 'why' so people adopt them.",
+      "Review after a month and keep what's working, drop what isn't.",
+    ],
+    prompt: `Help me improve my team's communication system (the structure, not individual conversations).
+
+Team context: [size, remote/hybrid, tools used]
+Current communication friction:
+"""
+[WHAT'S UNCLEAR, REDUNDANT, GETTING LOST, OR TAKING TOO MANY MEETINGS]
+"""
+
+Produce:
+1. A diagnosis of the likely structural causes (not just symptoms)
+2. Proposed channel norms—what goes where (chat vs. email vs. docs vs. meetings)
+3. A meeting and update cadence that would serve this team
+4. How to make sure information reaches the right people without overwhelming everyone
+5. A phased way to roll changes out
+
+Adapt to a team of my size and setup. Favor fewer, well-defined norms over an elaborate system nobody follows.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "8 Notion Tips and Tricks for a More Powerful Workspace",
+        type: "Article",
+        url: "https://zapier.com/blog/notion-tips/",
+      },
+    ],
+  },
+  {
+    id: "40",
+    title: "Analyze Business Problems with AI",
+    slug: "analyze-business-problems-with-ai",
+    description:
+      "Break a messy, ambiguous business problem into its parts—root causes, contributing factors, and a structured path to a solution—instead of jumping to the first fix. This workflow brings analytical structure to problems that feel too tangled to start on.",
+    category: "Operations",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-4 hours per problem",
+    audience: ["Operations leaders", "Managers", "Consultants", "Founders"],
+    problem:
+      "Real business problems arrive tangled: symptoms, causes, and constraints all knotted together, and it's not obvious where to even start. The temptation is to grab the first plausible fix, which often treats a symptom while the root cause festers. Structured problem analysis is a skill, and it's hard to apply to your own situation under pressure.",
+    solution:
+      "AI can apply problem-solving structure to a messy situation: separating symptoms from root causes, mapping contributing factors, and framing the problem clearly before jumping to solutions. Using approaches like root-cause analysis or issue trees, it helps you think it through systematically. You bring the real-world context and the final judgment; AI provides the analytical scaffolding that keeps you from solving the wrong problem.",
+    steps: [
+      "Describe the problem as you see it—symptoms, context, what you've tried.",
+      "Ask AI to help separate symptoms from likely root causes.",
+      "Have it map contributing factors and frame the actual problem clearly.",
+      "Pressure-test the framing—solving a well-framed problem beats fixing a symptom fast.",
+      "Ask for a structured set of possible solutions tied to the root causes.",
+      "Choose an approach with your real-world judgment and define how you'll know it worked.",
+    ],
+    prompt: `Help me analyze this business problem systematically, before jumping to solutions.
+
+The problem as I see it (symptoms, context, what I've tried):
+"""
+[DESCRIBE THE PROBLEM]
+"""
+
+Work through it structurally:
+1. Separate symptoms from likely root causes
+2. Map the contributing factors (consider using an issue tree or root-cause approach)
+3. Reframe the actual core problem clearly—it may not be what it first appears
+4. Only then, propose possible solutions tied to the root causes, not the symptoms
+5. Suggest how I'd know whether a solution actually worked
+
+Challenge my framing if the problem I've described looks like a symptom of something deeper. Ask for context where you need it rather than assuming.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "The Ultimate Notion Guide: From Beginner to Pro",
+        type: "Article",
+        url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
+      },
+    ],
+  }
+];
 export function getWorkflowBySlug(slug: string): Workflow | undefined {
   return workflows.find((workflow) => workflow.slug === slug);
 }
+
