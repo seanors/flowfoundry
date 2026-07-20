@@ -4,7 +4,7 @@ import FlowFoundryLogo from "@/components/FlowFoundryLogo";
 const navLinks = [
   { label: "Explore", href: "/explore" },
   { label: "Categories", href: "/explore" },
-  { label: "Resources", href: "#" },
+  { label: "Resources", href: "/resources" },
   { label: "Submit an idea", href: "/submit" },
   { label: "Newsletter", href: "/#newsletter" },
   { label: "About", href: "#" },

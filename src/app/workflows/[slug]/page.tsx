@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getWorkflowBySlug, workflows } from "@/data/workflows";
+import { truncateDescription } from "@/lib/seo";
 
 const categoryStyles: Record<string, string> = {
   "Project Management": "bg-forge-blue/10 text-forge-blue",
@@ -16,14 +18,34 @@ export function generateStaticParams() {
   return workflows.map((workflow) => ({ slug: workflow.slug }));
 }
 
-export function generateMetadata({ params }: WorkflowPageProps) {
+export function generateMetadata({ params }: WorkflowPageProps): Metadata {
   const workflow = getWorkflowBySlug(params.slug);
   if (!workflow) {
-    return { title: "Workflow not found | FlowFoundry" };
+    return { title: "Workflow not found" };
   }
+
+  const description = truncateDescription(workflow.description);
+  const title = workflow.title;
+  const url = `/workflows/${workflow.slug}`;
+
   return {
-    title: `${workflow.title} | FlowFoundry`,
-    description: workflow.description,
+    title,
+    description,
+    openGraph: {
+      type: "article",
+      siteName: "FlowFoundry",
+      title,
+      description,
+      url,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: {
+      canonical: url,
+    },
   };
 }
 

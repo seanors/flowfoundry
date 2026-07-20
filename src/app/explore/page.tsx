@@ -1,12 +1,29 @@
+import type { Metadata } from "next";
 import { CategoryCard } from "@/components/category-card";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { categories } from "@/data/categories";
 import { workflows } from "@/data/workflows";
 
-export const metadata = {
-  title: "Explore | FlowFoundry",
-  description: "Browse AI workflows by category.",
+export const metadata: Metadata = {
+  title: "Explore",
+  description:
+    "Browse FlowFoundry by category—project management, knowledge work, productivity, operations, automation, and AI agents.",
+  openGraph: {
+    title: "Explore",
+    description:
+      "Browse FlowFoundry by category—project management, knowledge work, productivity, operations, automation, and AI agents.",
+    url: "/explore",
+    type: "website",
+    siteName: "FlowFoundry",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Explore",
+    description:
+      "Browse FlowFoundry by category—project management, knowledge work, productivity, operations, automation, and AI agents.",
+  },
+  alternates: { canonical: "/explore" },
 };
 
 export default function ExplorePage() {

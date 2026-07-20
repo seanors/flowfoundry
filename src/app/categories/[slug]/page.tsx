@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
@@ -6,6 +7,7 @@ import { WorkflowCard } from "@/components/workflow-card";
 import { categories, getCategoryBySlug } from "@/data/categories";
 import { workflows } from "@/data/workflows";
 import { getCategoryAccent } from "@/lib/categoryColors";
+import { truncateDescription } from "@/lib/seo";
 
 type CategoryPageProps = {
   params: { slug: string };
@@ -15,14 +17,36 @@ export function generateStaticParams() {
   return categories.map((category) => ({ slug: category.slug }));
 }
 
-export function generateMetadata({ params }: CategoryPageProps) {
+export function generateMetadata({ params }: CategoryPageProps): Metadata {
   const category = getCategoryBySlug(params.slug);
   if (!category) {
-    return { title: "Category not found | FlowFoundry" };
+    return { title: "Category not found" };
   }
+
+  const description = truncateDescription(
+    `${category.description} Browse practical AI workflows for ${category.name} on FlowFoundry.`
+  );
+  const title = category.name;
+  const url = `/categories/${category.slug}`;
+
   return {
-    title: `${category.name} | FlowFoundry`,
-    description: category.description,
+    title,
+    description,
+    openGraph: {
+      type: "website",
+      siteName: "FlowFoundry",
+      title,
+      description,
+      url,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: {
+      canonical: url,
+    },
   };
 }
 

@@ -4,9 +4,24 @@ import { Navbar } from "@/components/navbar";
 import { SubmitForm } from "@/components/submit-form";
 
 export const metadata: Metadata = {
-  title: "Submit an idea | FlowFoundry",
+  title: "Submit an idea",
   description:
-    "Suggest a workflow for the FlowFoundry library or get in touch with the team.",
+    "Suggest a practical AI workflow for the FlowFoundry library, or get in touch with feedback and partnership ideas.",
+  openGraph: {
+    title: "Submit an idea",
+    description:
+      "Suggest a practical AI workflow for the FlowFoundry library, or get in touch with feedback and partnership ideas.",
+    url: "/submit",
+    type: "website",
+    siteName: "FlowFoundry",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Submit an idea",
+    description:
+      "Suggest a practical AI workflow for the FlowFoundry library, or get in touch with feedback and partnership ideas.",
+  },
+  alternates: { canonical: "/submit" },
 };
 
 export default function SubmitPage() {

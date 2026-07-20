@@ -6,9 +6,27 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteDescription =
+  "A curated library of practical AI workflows—step-by-step plays for project management, knowledge work, productivity, and more.";
+
 export const metadata: Metadata = {
-  title: "FlowFoundry",
-  description: "Where AI workflows are forged.",
+  metadataBase: new URL("https://flowfoundry-eight.vercel.app"),
+  title: {
+    default: "FlowFoundry — Practical AI workflows for how you work",
+    template: "%s | FlowFoundry",
+  },
+  description: siteDescription,
+  openGraph: {
+    type: "website",
+    siteName: "FlowFoundry",
+    title: "FlowFoundry — Practical AI workflows for how you work",
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FlowFoundry — Practical AI workflows for how you work",
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
