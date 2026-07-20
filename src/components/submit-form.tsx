@@ -53,7 +53,6 @@ export function SubmitForm() {
         message?: string;
       };
 
-      console.log("[Web3Forms]", result);
 
       if (!response.ok || !result.success) {
         throw new Error(result.message || "Submission failed");
