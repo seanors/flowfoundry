@@ -117,7 +117,7 @@ Sequence the tasks logically and flag anywhere you're making an assumption I sho
       },
     ],
   },
-  {
+{
     id: "3",
     title: "Create a Project Charter with AI",
     slug: "create-a-project-charter-with-ai",
@@ -162,7 +162,7 @@ For anything I haven't given you, mark it [NEEDS INPUT] rather than guessing. Ke
       },
     ],
   },
-  {
+{
     id: "4",
     title: "Summarize Project Meetings with AI",
     slug: "summarize-project-meetings-with-ai",
@@ -212,7 +212,7 @@ Meeting notes / transcript:
       },
     ],
   },
-  {
+{
     id: "5",
     title: "Analyze Project Risks with AI",
     slug: "analyze-project-risks-with-ai",
@@ -257,7 +257,7 @@ Push beyond the obvious—include risks I'm likely to overlook. Flag any that de
       },
     ],
   },
-  {
+{
     id: "6",
     title: "Create a RAID Log with AI",
     slug: "create-a-raid-log-with-ai",
@@ -307,7 +307,7 @@ For each entry give a short description, a suggested owner role, and a suggested
       },
     ],
   },
-  {
+{
     id: "7",
     title: "Prepare Stakeholder Updates with AI",
     slug: "prepare-stakeholder-updates-with-ai",
@@ -354,7 +354,7 @@ Keep the facts consistent across all versions—only the altitude, detail, and t
       },
     ],
   },
-  {
+{
     id: "8",
     title: "Create Project Timelines with AI",
     slug: "create-project-timelines-with-ai",
@@ -405,7 +405,7 @@ State any assumptions you're making about sequencing or duration so I can correc
       },
     ],
   },
-  {
+{
     id: "9",
     title: "Prioritize a Project Backlog with AI",
     slug: "prioritize-a-project-backlog-with-ai",
@@ -451,7 +451,7 @@ Call out any trade-offs or close calls where two items are hard to separate, and
       },
     ],
   },
-  {
+{
     id: "10",
     title: "Run Project Retrospectives with AI",
     slug: "run-project-retrospectives-with-ai",
@@ -503,6 +503,528 @@ Keep it constructive and concrete—avoid vague advice like "communicate better.
     id: "11",
     title: "Build SOPs with AI",
     slug: "build-sops-with-ai",
+    description:
+      "Turn a process that lives in someone's head into a clear, step-by-step standard operating procedure anyone on the team can follow. This workflow drafts a structured SOP from a walkthrough of how you actually do the task, so documenting tribal knowledge stops being the chore you keep postponing.",
+    category: "Knowledge Management",
+    difficulty: "Beginner",
+    timeSaved: "Save 2-3 hours per SOP",
+    audience: ["Operations leaders", "Team leads", "Consultants", "Anyone documenting a repeatable process"],
+    problem:
+      "Every team has processes that need to happen the same way every time, but they live in people's heads instead of on paper. When the person who knows the process is out—or leaves—you get inconsistency, mistakes, and single points of failure. Writing SOPs is the obvious fix and the thing nobody does, because turning a task you do on autopilot into clear written steps is slow and tedious.",
+    solution:
+      "AI is well suited to converting a rough walkthrough into a structured SOP. You describe how you actually do the task—messily, in whatever order it comes out—and AI organizes it into purpose, scope, prerequisites, numbered steps, and edge cases. The defining quality of a good SOP is specificity, so you review to make sure each step is exact enough that a new person could follow it and get the same result.",
+    steps: [
+      "Talk or type through how you actually perform the task, start to finish—don't worry about order or polish.",
+      "Paste that into the prompt below and ask AI to structure it into a standard SOP format.",
+      "Check that each step is specific: exact tools, exact order, what 'done' looks like at each stage.",
+      "Add the edge cases and failure points—what to do when something goes wrong is what separates a real SOP from a happy-path checklist.",
+      "Have someone unfamiliar with the task read it and flag anything ambiguous.",
+      "Store it in your knowledge base with a version date and an owner responsible for keeping it current.",
+    ],
+    prompt: `Turn my rough walkthrough into a clear standard operating procedure (SOP).
+
+Here's how I do the task:
+"""
+[DESCRIBE THE PROCESS IN WHATEVER ORDER IT COMES OUT]
+"""
+
+Structure it as:
+1. Purpose (what this SOP achieves, one or two sentences)
+2. Scope / when to use it
+3. Prerequisites (tools, access, inputs needed)
+4. Step-by-step procedure (numbered, specific enough that a new hire could follow it)
+5. Common issues and what to do about them
+6. Definition of done
+
+Make each step concrete—name exact tools and expected outcomes. Where my walkthrough is vague or missing a step, mark it [NEEDS DETAIL] rather than inventing it.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "How to write a standard operating procedure (SOP): guide with examples",
+        type: "Guide",
+        url: "https://www.mintlify.com/library/how-to-write-standard-operating-procedure",
+      },
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
+      },
+    ],
+  },
+  {
+    id: "12",
+    title: "Create Durable Meeting Documentation with AI",
+    slug: "create-durable-meeting-documentation-with-ai",
+    description:
+      "Turn recurring meetings into a maintained knowledge record—decisions, rationale, and context that stay useful months later—rather than notes that rot in someone's inbox. This workflow builds the institutional memory layer, distinct from a quick post-meeting recap.",
+    category: "Knowledge Management",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2 hours/week",
+    audience: ["Operations leaders", "Program managers", "Team leads", "Knowledge managers"],
+    problem:
+      "Meeting notes usually capture what was said but not what matters later: why a decision was made, what was rejected and why, what context future readers will need. Six months on, no one can reconstruct the reasoning, so the same debates repeat. Notes scattered across tools and formats never become a searchable record.",
+    solution:
+      "This is about capture for the long term, not the quick recap. AI restructures raw meeting content into durable documentation: the decision, the reasoning behind it, alternatives considered, and links to related context—formatted consistently so it becomes part of a searchable knowledge base. You ensure the 'why' is preserved, which is the part that makes documentation valuable a year from now.",
+    steps: [
+      "Collect the raw material: transcript or notes, plus any decisions or documents referenced.",
+      "Prompt AI to extract not just what was decided but why, and what alternatives were weighed.",
+      "Confirm the reasoning is captured accurately—this is the part that's easy to lose and expensive to lose.",
+      "Link the entry to related decisions and documents so it sits in context, not isolation.",
+      "File it in your knowledge base using a consistent template so entries are comparable and searchable.",
+      "Tag it so future readers can actually find it when the topic resurfaces.",
+    ],
+    prompt: `Turn this meeting content into durable documentation for our knowledge base—something useful to someone reading it six months from now, not just a recap.
+
+Notes / transcript:
+"""
+[PASTE NOTES OR TRANSCRIPT]
+"""
+
+Produce:
+1. Summary of what this meeting was about (2-3 sentences)
+2. Decisions made, and for each: the reasoning behind it and any alternatives that were considered and rejected
+3. Context a future reader would need to understand these decisions
+4. Open questions and what would resolve them
+5. Suggested tags/topics for filing
+
+Prioritize capturing the "why" behind decisions. If the reasoning isn't clear from the notes, flag it as [REASONING NOT CAPTURED] so I can add it.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Building a Second Brain in Notion (PARA + Forgetting Curve)",
+        type: "Article",
+        url: "https://medium.com/design-bootcamp/building-a-second-brain-in-notion-5cd5da59da01",
+      },
+    ],
+  },
+  {
+    id: "13",
+    title: "Organize Messy Notes with AI",
+    slug: "organize-messy-notes-with-ai",
+    description:
+      "Turn a pile of scattered, half-finished notes into a structured, categorized, and findable set of knowledge—without spending a weekend on it. This workflow uses AI to impose structure on the chaos so your notes become an asset instead of a graveyard.",
+    category: "Knowledge Management",
+    difficulty: "Beginner",
+    timeSaved: "Save 2-3 hours",
+    audience: ["Knowledge workers", "Consultants", "Students", "Anyone with a notes backlog"],
+    problem:
+      "Notes accumulate faster than anyone organizes them: fragments in different apps, half-thoughts, meeting scraps, links with no context. The pile grows until it's easier to search the web again than to find what you already wrote down. The organizing work is boring and open-ended, so it never happens.",
+    solution:
+      "AI can read a dump of unstructured notes and impose order: clustering by theme, suggesting categories, flagging duplicates, and surfacing the notes that are actually actionable versus reference. You keep the judgment about what matters; AI does the sorting pass that turns a graveyard back into a usable system, following a structure like PARA if you want one.",
+    steps: [
+      "Gather your scattered notes into one place—paste them in, however messy.",
+      "Ask AI to cluster them by theme and suggest a category structure.",
+      "Review the categories; adjust to match how you actually think about your work.",
+      "Have it flag duplicates, outdated notes, and anything that's actually an action item hiding in reference notes.",
+      "Pull the action items into your task system; file the rest under the agreed structure.",
+      "Set a light recurring habit (weekly or monthly) to run the same pass so the backlog doesn't rebuild.",
+    ],
+    prompt: `Help me organize these messy, unstructured notes.
+
+Notes:
+"""
+[PASTE ALL YOUR SCATTERED NOTES]
+"""
+
+Do the following:
+1. Cluster them into themes and propose a clear category structure
+2. Within each category, list the notes that belong there (summarize long ones)
+3. Flag duplicates and notes that look outdated
+4. Separately, pull out anything that's actually an action item disguised as a note
+5. Note anything too fragmentary to categorize, so I can decide whether to keep it
+
+Keep the structure simple and practical—no more categories than I actually need.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "How to Build a Second Brain in Notion",
+        type: "Guide",
+        url: "https://fortelabs.com/blog/how-to-build-a-second-brain-in-notion/",
+      },
+      {
+        title: "Second Brain / PKM Templates (Category)",
+        type: "Template",
+        url: "https://www.notion.com/templates/category/second-brain",
+      },
+    ],
+  },
+  {
+    id: "14",
+    title: "Summarize Long Documents with AI",
+    slug: "summarize-long-documents-with-ai",
+    description:
+      "Get the substance of a long report, contract, or research paper in minutes—with the key points, decisions required, and details that matter to you specifically, not a generic abstract. This workflow makes AI summarize for your purpose, not just compress the text.",
+    category: "Knowledge Management",
+    difficulty: "Beginner",
+    timeSaved: "Save 1-2 hours per document",
+    audience: ["Consultants", "Operations leaders", "Analysts", "Anyone drowning in reading"],
+    problem:
+      "The reading pile is endless: reports, contracts, decks, research, long email threads. Reading every word to find the handful of points relevant to you is a poor use of time, but skimming means missing the thing that mattered. A generic summary often smooths over exactly the detail you needed.",
+    solution:
+      "AI summarizes well when you tell it what you're reading for. Instead of a generic abstract, you specify your role and the decision you're trying to make, and it surfaces the points that matter to you, flags what needs your action, and preserves the specifics (numbers, dates, obligations) that generic summaries drop. You still read the critical sections in full—AI tells you which ones those are.",
+    steps: [
+      "Paste the document (or the key sections) into your AI tool.",
+      "Tell it who you are and what decision or question you're reading for—this is what makes the summary useful.",
+      "Ask for a layered summary: headline, key points, and anything requiring your action.",
+      "Check the specifics it surfaced—numbers, dates, obligations—against the source before acting on them.",
+      "Read in full only the sections it flags as critical or ambiguous.",
+      "Save the summary alongside the document so you don't re-read it next time.",
+    ],
+    prompt: `Summarize this document for my purpose.
+
+My role: [e.g. ops manager reviewing a vendor contract]
+What I'm reading for: [the decision or question you need answered]
+
+Document:
+"""
+[PASTE DOCUMENT OR KEY SECTIONS]
+"""
+
+Give me:
+1. A one-paragraph headline summary
+2. The key points that matter for my purpose specifically
+3. Anything that requires a decision or action from me
+4. Important specifics (numbers, dates, obligations, deadlines) stated exactly
+5. Which sections I should read in full myself, and why
+
+If anything is ambiguous or seems important but unclear, flag it rather than smoothing over it.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
+      },
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+    ],
+  },
+  {
+    id: "15",
+    title: "Build an Internal Knowledge Base with AI",
+    slug: "build-an-internal-knowledge-base-with-ai",
+    description:
+      "Design and populate a knowledge base that people actually use—the right structure, the articles that matter most, and a consistent format—instead of an empty wiki that everyone ignores. This workflow uses AI to plan the architecture and draft the first articles from what your team already knows.",
+    category: "Knowledge Management",
+    difficulty: "Intermediate",
+    timeSaved: "Save 4-6 hours of setup",
+    audience: ["Operations leaders", "Knowledge managers", "Team leads", "Founders scaling a team"],
+    problem:
+      "Most internal wikis fail the same way: someone sets up an empty structure, a few people add scattered pages, nothing is consistent, search returns nothing useful, and everyone goes back to asking in Slack. The hard parts—deciding the architecture and writing the first critical articles—are exactly where momentum dies.",
+    solution:
+      "AI helps with both hard parts. It can propose a knowledge-base architecture based on what your team actually needs to look up, then draft initial articles from rough input so the base launches with real content instead of empty shells. You bring the knowledge of what your team asks about most; AI structures it and does the drafting, so the base is useful on day one.",
+    steps: [
+      "List the questions your team asks repeatedly and the topics people always need to look up.",
+      "Ask AI to propose a knowledge-base structure organized around those needs.",
+      "Prioritize the handful of articles that would deflect the most repeat questions.",
+      "For each, give AI rough input and have it draft a consistent, well-structured article.",
+      "Review for accuracy and add the specifics only your team knows.",
+      "Launch with those core articles, assign owners, and add new articles as questions recur.",
+    ],
+    prompt: `Help me design and start an internal knowledge base.
+
+What my team asks about / needs to look up most:
+"""
+[LIST RECURRING QUESTIONS AND TOPICS]
+"""
+
+First, propose a knowledge-base structure (categories and the key articles under each), organized around what people actually need to find—not an org chart.
+
+Then, identify the 5 articles that would deflect the most repeat questions, and for the first one, draft a clear article from this rough input:
+"""
+[ROUGH INPUT FOR THE FIRST ARTICLE]
+"""
+
+Use a consistent article format (purpose, steps/answer, related links). Flag where you'd need more detail from me.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "The Ultimate Notion Guide: From Beginner to Pro",
+        type: "Article",
+        url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
+      },
+    ],
+  },
+  {
+    id: "16",
+    title: "Create FAQs with AI",
+    slug: "create-faqs-with-ai",
+    description:
+      "Turn the questions your team or customers keep asking into a clear, well-organized FAQ that actually answers them—drafted from your support threads, docs, and Slack history. This workflow deflects repeat questions by capturing the answers once, properly.",
+    category: "Knowledge Management",
+    difficulty: "Beginner",
+    timeSaved: "Save 2-3 hours",
+    audience: ["Operations leaders", "Support leads", "Product managers", "Founders"],
+    problem:
+      "The same questions come in over and over—from customers, from new hires, from other teams—and answering them individually eats hours every week. Writing a good FAQ would stop the churn, but pulling together the real questions and wording clear answers is work that keeps sliding down the list.",
+    solution:
+      "AI can mine your existing support threads, docs, and chat history for the questions that actually recur, cluster near-duplicates, and draft clear answers you refine. It's fast at the tedious parts—grouping variations of the same question, keeping tone consistent—so you get a real FAQ from material you already have, rather than inventing questions from scratch.",
+    steps: [
+      "Gather raw sources: support tickets, recurring Slack questions, onboarding questions, existing scattered answers.",
+      "Ask AI to identify the genuinely recurring questions and cluster variants of the same one.",
+      "Review the list—confirm these are the real repeat questions, add any obvious ones it missed.",
+      "Have it draft clear, consistent answers; supply the correct details where it can't know them.",
+      "Organize the FAQ by topic so people can scan to their question.",
+      "Publish it where people actually ask, and update it whenever a new question starts recurring.",
+    ],
+    prompt: `Help me build an FAQ from real questions.
+
+Here are raw sources (support threads, repeat questions, existing answers):
+"""
+[PASTE TICKETS, SLACK QUESTIONS, ETC.]
+"""
+
+Do the following:
+1. Identify the questions that genuinely recur, and group variants of the same question together
+2. For each, draft a clear, concise answer in a consistent tone
+3. Organize the questions into logical topic groups
+4. Flag any question where you don't have enough information to answer accurately, so I can fill it in
+
+Keep answers practical and jargon-free. Don't invent answers—mark gaps as [NEEDS ANSWER].`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
+      },
+    ],
+  },
+  {
+    id: "17",
+    title: "Create Onboarding Documentation with AI",
+    slug: "create-onboarding-documentation-with-ai",
+    description:
+      "Build a structured onboarding guide that gets new hires productive fast—covering what they need, in what order, without you rewriting it for every new person. This workflow turns scattered onboarding knowledge into a repeatable first-weeks plan.",
+    category: "Knowledge Management",
+    difficulty: "Beginner",
+    timeSaved: "Save 3-4 hours per role",
+    audience: ["Operations leaders", "Team leads", "HR / people teams", "Managers hiring their first reports"],
+    problem:
+      "Onboarding usually happens ad hoc: the new hire gets a firehose of Slack messages, a few links, and whatever the busy manager remembers to mention. Nothing is sequenced, key context is missed, and the new person spends their first weeks unsure what to do. Writing proper onboarding docs takes time that hiring managers rarely have in the moment.",
+    solution:
+      "AI can structure onboarding knowledge into a sequenced plan: what the new hire needs in week one versus later, which systems and people to know, and the context that usually only comes up by accident. You provide the role's realities; AI organizes them into a first-30-days structure a new person can actually follow, and that you reuse for the next hire.",
+    steps: [
+      "Brain-dump everything a new person in this role needs to know, access, and do—unordered is fine.",
+      "Ask AI to sequence it into a logical onboarding plan (day one, week one, first 30 days).",
+      "Check the sequencing—make sure prerequisites come before the things that depend on them.",
+      "Add the tacit context: who to ask about what, the unwritten norms, the things that trip new people up.",
+      "Format it as a checklist the new hire can work through independently.",
+      "Reuse and refine it with each new hire so it gets sharper over time.",
+    ],
+    prompt: `Help me create onboarding documentation for a new hire.
+
+Role: [title and what they'll do]
+Everything they need to know / access / do (unordered):
+"""
+[BRAIN-DUMP: systems, people, tasks, context, norms]
+"""
+
+Structure this into an onboarding plan:
+1. Before day one / day one essentials (access, accounts, key intros)
+2. Week one priorities
+3. First 30 days (ramp goals and key tasks)
+4. Key people to know and what to go to each for
+5. A simple checklist the new hire can follow independently
+
+Sequence things so prerequisites come first. Flag anything that looks missing for a role like this so I can add it.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Getting Started with Projects and Tasks",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/getting-started-with-projects-and-tasks",
+      },
+    ],
+  },
+  {
+    id: "18",
+    title: "Extract Insights from PDFs with AI",
+    slug: "extract-insights-from-pdfs-with-ai",
+    description:
+      "Pull the specific data, findings, or answers you need out of dense PDFs—reports, research, financial statements—without reading all fifty pages. This workflow turns static documents into something you can interrogate directly.",
+    category: "Knowledge Management",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-3 hours per document",
+    audience: ["Analysts", "Consultants", "Operations leaders", "Researchers"],
+    problem:
+      "Critical information is often locked in long PDFs: a figure buried on page 40, a clause in a contract, a finding in a research report. Finding it means scrolling, Ctrl-F guessing at keywords, and hoping you didn't miss a relevant mention elsewhere. It's slow, and it's easy to miss context that changes what a number means.",
+    solution:
+      "AI turns a static PDF into something you can question directly. You ask for the specific data or answer you need, and it locates it, pulls the surrounding context, and can compare figures across sections. You verify anything you'll act on against the source—AI can misread a table—but the search-and-extract time collapses from an hour to minutes.",
+    steps: [
+      "Load the PDF into an AI tool that accepts document uploads (Claude and ChatGPT both do).",
+      "Ask specific questions rather than 'summarize'—name the data point, clause, or finding you need.",
+      "Ask it to quote the exact source text and location for anything you'll rely on.",
+      "Verify critical figures against the original—especially anything from tables, which AI can misread.",
+      "Ask follow-ups to compare or cross-reference across sections.",
+      "Save the extracted answers with their source locations so the work is reusable and auditable.",
+    ],
+    prompt: `I've attached a PDF. Help me extract what I need from it.
+
+What I'm looking for:
+"""
+[NAME THE SPECIFIC DATA, FINDINGS, CLAUSES, OR ANSWERS YOU NEED]
+"""
+
+For each item:
+1. Give me the answer
+2. Quote the exact supporting text and note where in the document it appears (page/section)
+3. Add any surrounding context that changes how I should interpret it
+
+If a figure comes from a table, flag it so I know to double-check it. If something I asked for isn't in the document, say so clearly rather than guessing.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
+      },
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+    ],
+  },
+  {
+    id: "19",
+    title: "Build Decision Logs with AI",
+    slug: "build-decision-logs-with-ai",
+    description:
+      "Capture the decisions your team makes—what was decided, why, and by whom—in a consistent, searchable log so you stop relitigating settled questions. This workflow makes decision-recording fast enough that it actually happens.",
+    category: "Knowledge Management",
+    difficulty: "Beginner",
+    timeSaved: "Save 1-2 hours/week",
+    audience: ["Operations leaders", "Program managers", "Team leads", "Founders"],
+    problem:
+      "Teams make dozens of decisions and record almost none of them. Months later no one remembers why a choice was made, so the same debate reopens, or a settled decision quietly gets reversed by someone who wasn't there. The reasoning—the most valuable part—evaporates because logging it in the moment feels like overhead.",
+    solution:
+      "AI makes decision-logging low-effort enough to actually sustain. From a short description or a meeting excerpt, it produces a clean, consistent decision-log entry: the decision, the context, the reasoning, alternatives considered, and the owner. Because it's fast and consistent, the log gets kept—and a kept decision log is one of the highest-leverage knowledge assets a team can have.",
+    steps: [
+      "When a decision is made, capture it however you can—a few sentences or the relevant meeting excerpt.",
+      "Feed it to AI with the prompt below to produce a structured decision-log entry.",
+      "Confirm the reasoning and alternatives are captured accurately—that's the part worth preserving.",
+      "Record the owner and the date, and link any supporting documents.",
+      "File it in a consistent decision-log format so entries are searchable and comparable.",
+      "When an old decision resurfaces, check the log first before reopening the debate.",
+    ],
+    prompt: `Turn this into a clean decision-log entry.
+
+What happened / what was decided:
+"""
+[DESCRIBE THE DECISION, OR PASTE THE RELEVANT MEETING EXCERPT]
+"""
+
+Produce a structured entry with:
+1. Decision (stated clearly in one or two sentences)
+2. Date and decision owner (mark [TBD] if not given)
+3. Context (why this came up)
+4. Reasoning (why this option was chosen)
+5. Alternatives considered and why they were rejected
+6. Any conditions or review date attached to the decision
+
+Keep it concise and consistent. If the reasoning or alternatives aren't clear from what I gave you, flag that rather than inventing them.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+      {
+        title: "Building a Second Brain in Notion (PARA + Forgetting Curve)",
+        type: "Article",
+        url: "https://medium.com/design-bootcamp/building-a-second-brain-in-notion-5cd5da59da01",
+      },
+    ],
+  },
+  {
+    id: "20",
+    title: "Run Structured Research with AI",
+    slug: "run-structured-research-with-ai",
+    description:
+      "Go from a research question to an organized, synthesized brief—key findings, sources, and open questions—instead of a pile of open tabs. This workflow is about synthesis and structure, not just asking AI a question and taking the first answer.",
+    category: "Knowledge Management",
+    difficulty: "Intermediate",
+    timeSaved: "Save 3-4 hours per topic",
+    audience: ["Consultants", "Analysts", "Researchers", "Anyone who briefs others"],
+    problem:
+      "Researching a topic properly means gathering from many sources, weighing them, and synthesizing—not just reading the first few results. Done ad hoc it turns into thirty open tabs and a vague sense of the answer, with no structured output and no record of what you found or where. And AI answers taken at face value can be confidently wrong.",
+    solution:
+      "Used well, AI is a research accelerator: it can structure your inquiry, synthesize across sources, organize findings, and surface what you still don't know. The discipline is treating it as a synthesis partner, not an oracle—asking for sources, cross-checking claims you'll rely on, and keeping the open questions visible. The output is a real brief you can act on or hand off, not a chat log.",
+    steps: [
+      "Frame the research question precisely and note what decision it serves.",
+      "Ask AI to map the sub-questions worth answering before diving in.",
+      "Gather findings—using AI with web search, or feeding it sources you've collected.",
+      "Have it synthesize into themes with sources noted, and keep an explicit 'what we still don't know' section.",
+      "Verify any claim you'll actually rely on against a primary source—don't take confident answers on trust.",
+      "Format the result as a structured brief with findings, sources, and open questions.",
+    ],
+    prompt: `Help me research this topic in a structured way.
+
+Research question: [your question]
+What decision or output this serves: [context]
+
+First, break the question into the sub-questions worth answering.
+
+Then synthesize what you know (or what's in the sources below) into:
+1. Key findings, organized by theme, with sources noted for each
+2. Points where sources disagree or evidence is weak
+3. What I still don't know / what needs primary verification
+4. A short bottom-line answer to my original question, with confidence noted
+
+Sources (if I'm providing them):
+"""
+[PASTE SOURCES, OR SAY "USE WEB SEARCH"]
+"""
+
+Flag any claim I should verify before relying on it. Don't present uncertain things as settled.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "How to Build a Second Brain in Notion",
+        type: "Guide",
+        url: "https://fortelabs.com/blog/how-to-build-a-second-brain-in-notion/",
+      },
+      {
+        title: "How to build a knowledge management system (Notion)",
+        type: "Article",
+        url: "https://www.notion.com/blog/how-to-build-a-knowledge-management-system",
+      },
+    ],
+  },
+{
+    id: "21",
+    title: "Build SOPs with AI",
+    slug: "build-sops-with-ai-operations",
     description:
       "Document how work actually gets done—without spending a full afternoon writing process docs from scratch. This workflow turns a rough brain dump or screen recording outline into a clear, reusable standard operating procedure your team can follow and improve.",
     category: "Operations",
@@ -565,7 +1087,7 @@ Process notes:
     ],
   },
 {
-    id: "12",
+    id: "22",
     title: "Summarize Meetings Automatically",
     slug: "summarize-meetings-automatically",
     description:
@@ -627,7 +1149,7 @@ Transcript:
         url: "https://chatgpt.com",
       },
     ],
-  }
+  },
 ];
 
 export function getWorkflowBySlug(slug: string): Workflow | undefined {

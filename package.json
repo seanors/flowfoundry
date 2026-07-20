@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fresh": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
