@@ -556,7 +556,7 @@ Make each step concrete—name exact tools and expected outcomes. Where my walkt
       },
     ],
   },
-  {
+{
     id: "12",
     title: "Create Durable Meeting Documentation with AI",
     slug: "create-durable-meeting-documentation-with-ai",
@@ -607,7 +607,7 @@ Prioritize capturing the "why" behind decisions. If the reasoning isn't clear fr
       },
     ],
   },
-  {
+{
     id: "13",
     title: "Organize Messy Notes with AI",
     slug: "organize-messy-notes-with-ai",
@@ -658,7 +658,7 @@ Keep the structure simple and practical—no more categories than I actually nee
       },
     ],
   },
-  {
+{
     id: "14",
     title: "Summarize Long Documents with AI",
     slug: "summarize-long-documents-with-ai",
@@ -712,7 +712,7 @@ If anything is ambiguous or seems important but unclear, flag it rather than smo
       },
     ],
   },
-  {
+{
     id: "15",
     title: "Build an Internal Knowledge Base with AI",
     slug: "build-an-internal-knowledge-base-with-ai",
@@ -763,7 +763,7 @@ Use a consistent article format (purpose, steps/answer, related links). Flag whe
       },
     ],
   },
-  {
+{
     id: "16",
     title: "Create FAQs with AI",
     slug: "create-faqs-with-ai",
@@ -813,7 +813,7 @@ Keep answers practical and jargon-free. Don't invent answers—mark gaps as [NEE
       },
     ],
   },
-  {
+{
     id: "17",
     title: "Create Onboarding Documentation with AI",
     slug: "create-onboarding-documentation-with-ai",
@@ -865,7 +865,7 @@ Sequence things so prerequisites come first. Flag anything that looks missing fo
       },
     ],
   },
-  {
+{
     id: "18",
     title: "Extract Insights from PDFs with AI",
     slug: "extract-insights-from-pdfs-with-ai",
@@ -914,7 +914,7 @@ If a figure comes from a table, flag it so I know to double-check it. If somethi
       },
     ],
   },
-  {
+{
     id: "19",
     title: "Build Decision Logs with AI",
     slug: "build-decision-logs-with-ai",
@@ -966,7 +966,7 @@ Keep it concise and consistent. If the reasoning or alternatives aren't clear fr
       },
     ],
   },
-  {
+{
     id: "20",
     title: "Run Structured Research with AI",
     slug: "run-structured-research-with-ai",
@@ -1023,130 +1023,513 @@ Flag any claim I should verify before relying on it. Don't present uncertain thi
   },
 {
     id: "21",
-    title: "Build SOPs with AI",
-    slug: "build-sops-with-ai-operations",
+    title: "Manage Your Email with AI",
+    slug: "manage-your-email-with-ai",
     description:
-      "Document how work actually gets done—without spending a full afternoon writing process docs from scratch. This workflow turns a rough brain dump or screen recording outline into a clear, reusable standard operating procedure your team can follow and improve.",
-    category: "Operations",
+      "Cut the time your inbox eats each day—triage what matters, draft replies in your voice, and turn long threads into clear next actions. This workflow keeps you in control of what gets sent while AI handles the reading and first-draft writing.",
+    category: "Productivity",
     difficulty: "Beginner",
-    timeSaved: "Save 4 hours/week",
-    audience: [
-      "Operations managers",
-      "Team leads onboarding new hires",
-      "Founders documenting early processes",
-      "Anyone who repeats the same task weekly",
-    ],
+    timeSaved: "Save 3-5 hours/week",
+    audience: ["Knowledge workers", "Managers", "Consultants", "Anyone with a heavy inbox"],
     problem:
-      "Critical processes live in one person's head or a messy Google Doc. When that person is out, work stalls. Writing a proper SOP feels heavy, so it never gets done—and every new hire learns by interrupting someone else.",
+      "Email is where the workday quietly disappears. Reading long threads to find the one thing that needs a decision, re-writing the same kinds of replies, and figuring out what actually needs action all add up to hours a week. The volume makes it hard to tell the urgent from the noise, so important messages get buried.",
     solution:
-      "Capture the process once as bullet notes or a voice-to-text dump, then use AI to structure it into a consistent SOP format: purpose, owners, steps, tools, edge cases, and success criteria. You review and publish; AI handles the scaffolding.",
+      "AI is well suited to the reading-and-drafting parts of email. It can summarize a long thread down to the decision it's asking for, draft a reply in your tone that you edit before sending, and pull action items out of a crowded inbox. You stay the sender—AI never sends on its own—so you keep judgment and control while offloading the slow parts.",
     steps: [
-      "Pick one high-friction process (e.g. invoice approval, customer onboarding, content publish) and list every step you take from start to finish.",
-      "Note tools, inputs, decision points, and what 'done' looks like—including common failure modes.",
-      "Feed your notes into the example prompt and ask for an SOP with numbered steps and checklists.",
-      "Edit for accuracy: add screenshots placeholders, link real tools, and assign a process owner.",
-      "Publish in Notion (or your wiki) with a last-reviewed date and a short 'how to suggest changes' note.",
-      "Run the SOP with a teammate once and revise anything that was unclear in practice.",
+      "Pick your highest-friction email task: triaging, replying, or extracting actions from threads.",
+      "For long threads, ask AI to summarize what's being asked and what a good response would address.",
+      "Have it draft a reply in your voice; give it a sample of your writing so the tone matches.",
+      "Edit every draft before sending—AI gets facts and commitments wrong, and those are on you.",
+      "For inbox triage, paste subject lines and ask it to group by urgency and surface what needs action.",
+      "Turn recurring reply types into saved prompts so common emails take seconds.",
     ],
-    prompt: `You are an operations documentation specialist. Turn the rough process notes below into a clear Standard Operating Procedure (SOP).
+    prompt: `Help me handle this email efficiently.
 
-Use this structure:
-- Title
-- Purpose (why this exists)
-- Owner / roles involved
-- When to use this SOP
-- Prerequisites & tools
-- Step-by-step procedure (numbered, actionable)
-- Decision points / edge cases
-- Definition of done
-- Related links (placeholders if unknown)
-
-Write for a new teammate who has never done this before. Be specific and concise.
-
-Process notes:
+Here's the thread:
 """
-[PASTE YOUR BRAIN DUMP OR OUTLINE HERE]
-"""`,
-    tools: ["Claude", "Notion"],
+[PASTE THE EMAIL OR THREAD]
+"""
+
+Do the following:
+1. Summarize what this thread is actually asking me for, in 1-2 sentences
+2. List any action items or decisions it needs from me
+3. Draft a reply in a [professional but warm / concise / formal] tone that addresses the key points
+
+Keep the draft tight. Flag anything where you're unsure of a fact or commitment so I can correct it before I send. Do not invent details I haven't given you.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
     resources: [
       {
-        title: "SOP writing checklist for operations teams",
-        type: "Guide",
-        url: "https://www.process.st/checklist/sop/",
-      },
-      {
-        title: "Notion wiki patterns for process docs",
+        title: "8 Notion Tips and Tricks for a More Powerful Workspace",
         type: "Article",
-        url: "https://www.notion.com/help/guides/build-a-company-wiki",
+        url: "https://zapier.com/blog/notion-tips/",
       },
       {
-        title: "Claude for structured writing",
-        type: "Tool",
-        url: "https://claude.ai",
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
       },
     ],
   },
 {
     id: "22",
-    title: "Summarize Meetings Automatically",
-    slug: "summarize-meetings-automatically",
+    title: "Create Daily Plans with AI",
+    slug: "create-daily-plans-with-ai",
     description:
-      "Walk out of every meeting with decisions, owners, and follow-ups already written down. This workflow converts transcripts or rough notes into a structured summary you can drop into Notion, Slack, or email within minutes.",
-    category: "Knowledge Management",
+      "Turn a chaotic to-do list and a full calendar into a realistic plan for the day—time-blocked, prioritized, and honest about what actually fits. This workflow helps you start the day with a plan instead of a pile.",
+    category: "Productivity",
     difficulty: "Beginner",
-    timeSaved: "Save 3 hours/week",
-    audience: [
-      "Product managers",
-      "Team leads running standups and syncs",
-      "Consultants and agency account managers",
-      "Anyone drowning in meeting notes",
-    ],
+    timeSaved: "Save 30-45 minutes/day",
+    audience: ["Knowledge workers", "Managers", "Consultants", "Anyone juggling many demands"],
     problem:
-      "Meetings end and the only record is a half-finished notes doc. Decisions get forgotten, action items lack owners, and people who missed the call have to re-ask the same questions. Writing a good summary by hand after every call is exhausting.",
+      "Most people start the day facing a long task list and a calendar full of meetings, with no clear sense of what's realistic. The result is an over-ambitious plan that collapses by mid-morning, or no plan at all and a reactive day. Figuring out what actually fits around your commitments takes mental energy you'd rather spend on the work.",
     solution:
-      "Record or paste the transcript (or detailed notes), then use a fixed AI prompt to extract decisions, action items with owners and due dates, open questions, and a short narrative summary. Share the result in your team channel or wiki as the single source of truth.",
+      "AI can take your tasks, your meetings, and your priorities and produce a realistic time-blocked day—one that respects how many hours you actually have between meetings and flags when you've planned more than fits. You bring the knowledge of what matters and your energy patterns; it does the fitting and sequencing so you begin the day with a plan you can trust.",
     steps: [
-      "Enable transcription in your meeting tool (Zoom, Meet, Teams) or paste notes into a doc immediately after the call.",
-      "Copy the transcript into your AI assistant with the example prompt, naming the meeting and attendees if known.",
-      "Review action items: confirm owners, dates, and anything that should stay private.",
-      "Post the summary to Notion (or your project page) and link it in Slack with a one-line TL;DR.",
-      "Forward only the action-item section to assignees if the full transcript is too long.",
-      "Reuse the same prompt template so every meeting summary follows the same format.",
+      "Dump your task list and today's meetings into the AI, with rough time estimates if you have them.",
+      "Tell it your priorities and any hard deadlines for today.",
+      "Ask for a realistic time-blocked plan that works around your meetings.",
+      "Have it flag honestly if you've got more than fits—better to cut now than fail at 3pm.",
+      "Adjust for your energy: hard work in your peak hours, admin in the troughs.",
+      "At day's end, roll unfinished items into tomorrow's plan with the same prompt.",
     ],
-    prompt: `You are a meeting notes assistant. Summarize the transcript below for people who could not attend.
+    prompt: `Help me plan my day realistically.
 
-Produce:
-1. TL;DR (2–3 sentences)
-2. Key discussion points (bullets)
-3. Decisions made (bullets; if none, say "None recorded")
-4. Action items as a table-style list: Action | Owner | Due date (use "TBD" if missing)
-5. Open questions / parking lot
-6. Suggested follow-up meeting topics (optional)
-
-Be faithful to the source. Do not invent decisions or owners.
-
-Meeting: [MEETING TITLE]
-Attendees: [NAMES]
-Transcript:
+My tasks (with rough time estimates where I have them):
 """
-[PASTE TRANSCRIPT OR NOTES HERE]
-"""`,
-    tools: ["Notion AI", "ChatGPT"],
+[PASTE TASKS]
+"""
+
+My meetings/commitments today:
+"""
+[PASTE CALENDAR / FIXED BLOCKS]
+"""
+
+Top priorities / hard deadlines for today: [list]
+My peak focus hours: [e.g. 9-11am]
+
+Produce a realistic time-blocked plan that works around my meetings. Put demanding work in my peak hours. If I've listed more than realistically fits, tell me clearly and suggest what to cut or move—don't just cram it all in.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
     resources: [
       {
-        title: "Meeting hygiene: agendas, notes, and follow-through",
-        type: "Article",
-        url: "https://www.notion.com/blog/meeting-notes",
+        title: "Personal Productivity System (Template)",
+        type: "Template",
+        url: "https://www.notion.com/templates/personal-productivity-system-143",
       },
       {
-        title: "Zoom AI Companion & transcript tips",
+        title: "How to Setup Notion: What Should You Do First?",
         type: "Guide",
-        url: "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057999",
+        url: "https://kalynbrooke.com/digital/notion/how-to-setup-notion/",
+      },
+    ],
+  },
+{
+    id: "23",
+    title: "Run Weekly Reviews with AI",
+    slug: "run-weekly-reviews-with-ai",
+    description:
+      "Do a proper weekly review in fifteen minutes—reflect on what got done, surface what slipped, and set focused priorities for the week ahead. This workflow makes the habit sustainable by removing the friction that usually kills it.",
+    category: "Productivity",
+    difficulty: "Beginner",
+    timeSaved: "Save 1 hour/week",
+    audience: ["Knowledge workers", "Managers", "Consultants", "Anyone trying to stay intentional"],
+    problem:
+      "The weekly review is the habit everyone knows works and almost no one sustains. Facing a blank page on a Friday afternoon to reconstruct the week, notice what slipped, and plan ahead takes energy that's usually gone by then. So it gets skipped, and weeks blur together with no course-correction.",
+    solution:
+      "AI lowers the activation energy. You dump the raw material of your week—what you did, what's still open, what's coming—and it structures the reflection: wins, what slipped and why, patterns worth noticing, and a focused set of priorities for next week. You bring the honesty; it does the organizing that makes a fifteen-minute review actually happen.",
+    steps: [
+      "Brain-dump your week: what you finished, what stalled, what's still open, what's coming up.",
+      "Ask AI to structure it into wins, slips, and patterns worth noticing.",
+      "Reflect on the 'why' behind what slipped—AI can prompt you, but the insight is yours.",
+      "Have it propose a focused set of priorities for next week, not an endless list.",
+      "Narrow to the two or three things that would make next week a success.",
+      "Save the review so you can spot patterns across weeks over time.",
+    ],
+    prompt: `Help me run my weekly review.
+
+Here's my raw brain-dump of the week:
+"""
+[WHAT YOU DID, WHAT STALLED, WHAT'S OPEN, WHAT'S COMING UP]
+"""
+
+Structure this into:
+1. Wins and progress (what actually moved)
+2. What slipped, and prompt me on why (patterns, not just a list)
+3. Anything recurring worth noticing across the week
+4. A focused set of 3-5 priorities for next week
+5. The 2-3 things that would make next week feel successful
+
+Keep it honest and concise. Push me gently on anything I seem to be avoiding, but don't lecture.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "Personal Productivity System (Template)",
+        type: "Template",
+        url: "https://www.notion.com/templates/personal-productivity-system-143",
       },
       {
-        title: "ChatGPT for recurring note templates",
-        type: "Tool",
-        url: "https://chatgpt.com",
+        title: "The Ultimate Notion Guide: From Beginner to Pro",
+        type: "Article",
+        url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
+      },
+    ],
+  },
+{
+    id: "24",
+    title: "Prioritize Your Tasks with AI",
+    slug: "prioritize-your-tasks-with-ai",
+    description:
+      "Cut through an overwhelming personal task list to the few things that actually matter today—weighing urgency, importance, effort, and your real energy. This workflow is about personal daily prioritization under real constraints, not project planning.",
+    category: "Productivity",
+    difficulty: "Beginner",
+    timeSaved: "Save 30 minutes/day",
+    audience: ["Knowledge workers", "Managers", "Consultants", "Anyone with too much on"],
+    problem:
+      "When everything on your list feels urgent, you either freeze or work on whatever's loudest rather than what matters. Deciding what to actually do—balancing deadlines, importance, how much energy each thing takes, and how much you've got—is genuinely hard to do clearly when you're already overwhelmed.",
+    solution:
+      "AI can apply a clear prioritization lens to your personal list and, importantly, explain its reasoning so you can push back. Given your tasks plus context on deadlines and your available energy, it separates the genuinely urgent-and-important from the merely noisy, and suggests what to defer or drop. You make the final call; it breaks the overwhelm that stops you deciding.",
+    steps: [
+      "List everything on your mind—the full messy task list, not a curated one.",
+      "Add context: real deadlines, what's high-stakes, and how much energy you have today.",
+      "Ask AI to sort by urgency and importance, and to flag what can be deferred or dropped.",
+      "Push back where its call doesn't match your gut—you know the stakes it can't see.",
+      "Pick the two or three 'must happen today' items and start there.",
+      "Move the rest to a later list so it's off your mind without being lost.",
+    ],
+    prompt: `Help me prioritize my personal task list. I'm feeling overwhelmed, so be clear and decisive.
+
+My tasks:
+"""
+[DUMP EVERYTHING ON YOUR MIND]
+"""
+
+Context:
+- Hard deadlines: [any]
+- What's high-stakes right now: [context]
+- My energy/capacity today: [high / medium / low]
+
+Sort these by urgency and importance. Then tell me:
+1. The 2-3 things that genuinely must happen today
+2. What can wait until later this week
+3. What I could defer indefinitely or drop entirely
+4. Anything that looks urgent but actually isn't
+
+Explain your reasoning briefly so I can overrule you where you're missing context.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "Personal Productivity System (Template)",
+        type: "Template",
+        url: "https://www.notion.com/templates/personal-productivity-system-143",
+      },
+      {
+        title: "How to Use Notion: 2026 Guide to Setup & Productivity",
+        type: "Article",
+        url: "https://everhour.com/blog/how-to-use-notion/",
+      },
+    ],
+  },
+{
+    id: "25",
+    title: "Improve Your Writing with AI",
+    slug: "improve-your-writing-with-ai",
+    description:
+      "Sharpen anything you write—emails, docs, posts—for clarity, tone, and concision, while keeping it unmistakably in your own voice. This workflow uses AI as an editor that improves your draft rather than a ghostwriter that replaces it.",
+    category: "Productivity",
+    difficulty: "Beginner",
+    timeSaved: "Save 1-2 hours/week",
+    audience: ["Knowledge workers", "Managers", "Consultants", "Anyone who writes to get work done"],
+    problem:
+      "Writing clearly is hard and slow. You know what you mean but the draft is bloated, the tone is slightly off, or it buries the point. Polishing it yourself takes multiple passes, and getting a colleague to review isn't always practical. So a lot of mediocre writing goes out that could have landed better.",
+    solution:
+      "AI is an excellent editor when you direct it. Rather than asking it to write for you—which flattens your voice into generic AI prose—you give it your draft and ask for specific improvements: tighten this, fix the tone, clarify the ask, cut the fluff. You keep your voice and judgment; it does the editing passes a good editor would, instantly.",
+    steps: [
+      "Write your draft in your own words first—don't outsource the thinking.",
+      "Give AI the draft plus the goal: who's reading it and what you want them to do.",
+      "Ask for specific edits (tighten, clarify the ask, fix tone) rather than a rewrite.",
+      "Compare its version to yours and keep only the changes that improve it without losing your voice.",
+      "For important pieces, ask what a skeptical reader might misread or object to.",
+      "Build a sense over time of which of its suggestions you trust and which you routinely reject.",
+    ],
+    prompt: `Act as my editor, not my ghostwriter. Improve this draft while keeping my voice.
+
+My draft:
+"""
+[PASTE YOUR DRAFT]
+"""
+
+Who's reading it and what I want them to do: [context]
+
+Do the following:
+1. Tighten it—cut fluff and redundancy without losing meaning
+2. Flag anything unclear or where the main point is buried
+3. Check the tone matches [professional / warm / direct] and fix where it's off
+4. Point out what a skeptical reader might misread or push back on
+
+Show your edited version, but preserve my voice and phrasing where it's working. Don't make it sound generic or corporate.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "The Ultimate Notion Guide: From Beginner to Pro",
+        type: "Article",
+        url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
+      },
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
+      },
+    ],
+  },
+{
+    id: "26",
+    title: "Keep Up With Your Reading Using AI",
+    slug: "keep-up-with-your-reading-using-ai",
+    description:
+      "Stay current in your field without drowning—turn the newsletters, articles, and saved links you never get to into quick, personalized digests. This workflow is about your ongoing reading habit, not one-off work documents.",
+    category: "Productivity",
+    difficulty: "Beginner",
+    timeSaved: "Save 2-3 hours/week",
+    audience: ["Knowledge workers", "Consultants", "Anyone staying current in a field"],
+    problem:
+      "Staying informed is part of the job, but the reading pile only grows: newsletters you skim and archive, articles you save and never open, threads you mean to get to. The guilt accumulates with the backlog, and you end up either spending hours reading or falling behind on what's happening in your field.",
+    solution:
+      "AI helps you keep up rather than catch up. It can distill articles and newsletters into the few points relevant to you, tell you whether something's worth reading in full, and pull the through-lines across several pieces. You decide what deserves deep reading; AI handles the triage so the backlog becomes a fast weekly digest instead of a source of guilt.",
+    steps: [
+      "Collect the week's reading you haven't gotten to—articles, newsletters, saved links.",
+      "Ask AI to distill each into a few key points and a read-in-full-or-skip verdict.",
+      "For a batch on one topic, ask it to synthesize the common threads and what's new.",
+      "Read in full only the pieces it flags as genuinely worth your time.",
+      "Save the digests so your reading turns into a searchable personal knowledge trail.",
+      "Make it a standing weekly habit so the backlog never rebuilds.",
+    ],
+    prompt: `Help me get through my reading backlog efficiently.
+
+Here are the articles/newsletters (paste text or key excerpts):
+"""
+[PASTE CONTENT]
+"""
+
+My field / what I care about staying current on: [context]
+
+For each piece:
+1. Give me 3-5 key points, focused on what's relevant to my field
+2. Tell me: read in full, skim, or skip—and why
+
+Then, across all of them, note any common themes or genuinely new developments I should know about. Be honest when something isn't worth my time.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "How to Build a Second Brain in Notion",
+        type: "Guide",
+        url: "https://fortelabs.com/blog/how-to-build-a-second-brain-in-notion/",
+      },
+      {
+        title: "8 Notion Tips and Tricks for a More Powerful Workspace",
+        type: "Article",
+        url: "https://zapier.com/blog/notion-tips/",
+      },
+    ],
+  },
+{
+    id: "27",
+    title: "Build a Learning Plan with AI",
+    slug: "build-a-learning-plan-with-ai",
+    description:
+      "Turn 'I want to learn X' into a structured, realistic learning path—sequenced topics, good resources, and milestones that fit the time you actually have. This workflow replaces aimless tutorial-hopping with a plan you can follow.",
+    category: "Productivity",
+    difficulty: "Intermediate",
+    timeSaved: "Save 3-4 hours of planning",
+    audience: ["Knowledge workers", "Career changers", "Anyone upskilling", "Lifelong learners"],
+    problem:
+      "Learning something new usually starts with enthusiasm and ends in a mess of half-watched tutorials and bookmarked courses with no coherent path. Without a sequence, you don't know what to learn first, whether you're making progress, or how it fits the few hours a week you actually have. So it stalls.",
+    solution:
+      "AI can build a structured learning path: breaking the subject into a sensible sequence, suggesting what to learn in what order, setting milestones, and scaling it to your real available time. You bring the goal and the honesty about your schedule; it produces a plan with checkpoints so learning becomes a path you follow rather than a pile you wander through. Verify specific resource recommendations, since AI can suggest ones that don't exist.",
+    steps: [
+      "Define what you want to learn and why—the concrete thing you want to be able to do.",
+      "Tell AI your starting level and how much time you realistically have each week.",
+      "Ask for a sequenced learning path with milestones, scaled to that time.",
+      "Have it suggest resource types and topics; verify specific courses/books actually exist before relying on them.",
+      "Set checkpoints so you can tell if you're progressing.",
+      "Revisit and adjust the plan as you learn what's working for you.",
+    ],
+    prompt: `Help me build a realistic learning plan.
+
+- What I want to learn: [subject]
+- Why / what I want to be able to do: [concrete goal]
+- My current level: [beginner / some experience / etc.]
+- Time I realistically have: [hours per week]
+
+Produce:
+1. A sequenced learning path broken into stages, in a sensible order
+2. Milestones so I can tell I'm progressing
+3. The types of resources and specific topics to cover at each stage
+4. A realistic timeline given my available hours
+5. A first-week starting point so I can begin today
+
+For any specific course, book, or resource you name, tell me to verify it exists—don't present unconfirmed recommendations as certain.`,
+    tools: ["ChatGPT", "Claude", "Copilot"],
+    resources: [
+      {
+        title: "The Ultimate Notion Guide: From Beginner to Pro",
+        type: "Article",
+        url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
+      },
+      {
+        title: "How to Build a Second Brain in Notion",
+        type: "Guide",
+        url: "https://fortelabs.com/blog/how-to-build-a-second-brain-in-notion/",
+      },
+    ],
+  },
+{
+    id: "28",
+    title: "Design Personal Workflows with AI",
+    slug: "design-personal-workflows-with-ai",
+    description:
+      "Turn the repetitive things you do every week into repeatable personal systems—checklists, templates, and routines—so you stop reinventing them each time. This workflow helps you build the personal operating procedures that quietly save hours.",
+    category: "Productivity",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-3 hours/week",
+    audience: ["Knowledge workers", "Managers", "Consultants", "Freelancers"],
+    problem:
+      "You do the same things repeatedly—prepping for a certain kind of meeting, producing a recurring deliverable, handling a type of request—but each time you rebuild the approach from memory. It's slower than it needs to be, quality varies, and the mental overhead of remembering all the steps is a low-grade tax on every week.",
+    solution:
+      "AI helps you turn repeated tasks into personal workflows: it can take a task you do often and design a reusable checklist, template, or routine around it, including the steps you tend to forget. You identify what's worth systematizing; AI does the design work of turning a fuzzy habit into a clean, repeatable system you can run on autopilot.",
+    steps: [
+      "Notice a task you do repeatedly and rebuild from scratch each time.",
+      "Describe how you currently do it, including the parts you sometimes forget.",
+      "Ask AI to design a reusable workflow: a checklist, template, or routine.",
+      "Refine it against a real instance of the task to make sure it actually fits.",
+      "Store it where you'll use it—your notes app, a template, a saved prompt.",
+      "Improve it each time you run it, so your personal systems compound over time.",
+    ],
+    prompt: `Help me turn a repetitive task into a reusable personal workflow.
+
+The task I do often: [name it]
+How I currently do it (including steps I sometimes forget):
+"""
+[DESCRIBE YOUR CURRENT APPROACH]
+"""
+
+Design a reusable system for it:
+1. A clear checklist or step-by-step routine
+2. A template I can reuse each time, if relevant
+3. The easy-to-forget steps, called out
+4. Where in the process I could save the most time
+
+Keep it lightweight and practical—something I'll actually use, not an elaborate system I'll abandon.`,
+    tools: ["ChatGPT", "Claude", "Notion AI"],
+    resources: [
+      {
+        title: "Personal Productivity System (Template)",
+        type: "Template",
+        url: "https://www.notion.com/templates/personal-productivity-system-143",
+      },
+      {
+        title: "The Ultimate Notion Guide: From Beginner to Pro",
+        type: "Article",
+        url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
+      },
+    ],
+  },
+{
+    id: "29",
+    title: "Build a Personal Knowledge System with AI",
+    slug: "build-a-personal-knowledge-system-with-ai",
+    description:
+      "Set up a durable second brain—a personal system where notes, ideas, and references are captured and organized so you can actually find and use them later. This workflow is about building and maintaining an ongoing system, not a one-time notes cleanup.",
+    category: "Productivity",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-3 hours/week ongoing",
+    audience: ["Knowledge workers", "Consultants", "Researchers", "Lifelong learners"],
+    problem:
+      "Ideas and useful information flow past constantly, but without a system to capture and organize them, they're gone by the time you need them. Ad hoc notes scatter across apps and become a graveyard. The result is re-researching things you already knew and losing your best ideas because there was nowhere to put them.",
+    solution:
+      "AI helps you design and run a personal knowledge system—a second brain—using an established method like PARA or a setup that fits how you think. It can propose the structure, define simple capture and review habits, and help process what you capture into something retrievable. You maintain the system; AI reduces the friction of setting it up and keeping it tidy, which is what makes it stick.",
+    steps: [
+      "Decide what you want your system to do: capture ideas, organize references, support projects.",
+      "Ask AI to propose a structure (PARA is a solid default) matched to how you actually work.",
+      "Set up simple capture habits—one easy place to put things as they occur.",
+      "Use AI to periodically process captures into the right place, so the inbox doesn't pile up.",
+      "Build a light weekly tidy-up so the system stays trustworthy.",
+      "Adjust the structure as you learn what you actually reach for.",
+    ],
+    prompt: `Help me design a personal knowledge system (a second brain).
+
+- What I want it to do: [capture ideas / organize references / support my projects / all]
+- How I tend to think and work: [context]
+- Tools I already use: [e.g. Notion, Apple Notes]
+
+Produce:
+1. A simple structure (consider PARA or similar) matched to how I work—not overly complex
+2. A capture habit: where I put things as they occur, with minimal friction
+3. A short weekly review routine to keep it organized and trustworthy
+4. How to process captured items into the right place
+
+Favor something sustainable over something elaborate. If PARA isn't the best fit for how I described myself, suggest an alternative and say why.`,
+    tools: ["Claude", "ChatGPT", "Notion AI"],
+    resources: [
+      {
+        title: "Building a Second Brain in Notion (PARA + Forgetting Curve)",
+        type: "Article",
+        url: "https://medium.com/design-bootcamp/building-a-second-brain-in-notion-5cd5da59da01",
+      },
+      {
+        title: "The OFFICIAL Notion Second Brain Setup",
+        type: "Video",
+        url: "https://www.youtube.com/watch?v=9QDu6wpR59o",
+      },
+    ],
+  },
+{
+    id: "30",
+    title: "Improve Your Communication with AI",
+    slug: "improve-your-communication-with-ai",
+    description:
+      "Handle the tricky conversations better—difficult feedback, a delicate message, a high-stakes ask—by pressure-testing your approach and wording before you hit send or walk into the room. This workflow is a rehearsal partner for the messages that matter.",
+    category: "Productivity",
+    difficulty: "Intermediate",
+    timeSaved: "Save 1-2 hours/week",
+    audience: ["Managers", "Knowledge workers", "Consultants", "Anyone navigating tricky conversations"],
+    problem:
+      "The highest-stakes communication is the hardest to get right: delivering difficult feedback, pushing back on a senior stakeholder, declining a request without burning a bridge, raising a sensitive issue. Get the framing or tone wrong and it costs you. But there's often no one to sanity-check the approach before you commit to it.",
+    solution:
+      "AI is a useful rehearsal partner for high-stakes messages. You describe the situation and your goal, and it can pressure-test your framing, suggest wording, anticipate how the other person might react, and flag where your tone might land wrong. You keep authorship and judgment; it gives you the second perspective that stops you sending the version you'd regret.",
+    steps: [
+      "Describe the situation, the relationship, and what you're trying to achieve.",
+      "Share your draft message or your intended approach.",
+      "Ask AI to pressure-test it: how might this land, where could it go wrong?",
+      "Have it suggest alternative framings for the trickiest parts.",
+      "Anticipate the other person's likely reaction and plan your response.",
+      "Send the version you judge best—informed by the rehearsal, but yours.",
+    ],
+    prompt: `Be my communication rehearsal partner for a tricky message. Give me honest pushback, not just reassurance.
+
+The situation: [context, the relationship, the stakes]
+What I'm trying to achieve: [goal]
+My draft or intended approach:
+"""
+[PASTE YOUR DRAFT OR DESCRIBE YOUR APPROACH]
+"""
+
+Do the following:
+1. Tell me honestly how this is likely to land for the recipient
+2. Flag anything in the tone or framing that could backfire
+3. Suggest a stronger framing for the hardest part
+4. Anticipate how they might react, and how I could respond
+
+Don't just soften everything—if I'm being unclear, unfair, or avoiding the real point, tell me.`,
+    tools: ["Claude", "ChatGPT", "Copilot"],
+    resources: [
+      {
+        title: "The Ultimate Notion Guide: From Beginner to Pro",
+        type: "Article",
+        url: "https://www.morgen.so/blog-posts/notion-tips-and-tricks",
+      },
+      {
+        title: "Everything You Can Do with Notion AI",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/everything-you-can-do-with-notion-ai",
       },
     ],
   },
@@ -1200,7 +1583,7 @@ Where the flow is unclear or a step seems to be missing, ask me rather than gues
       },
     ],
   },
-  {
+{
     id: "32",
     title: "Automate Recurring Reports with AI",
     slug: "automate-recurring-reports-with-ai",
@@ -1249,7 +1632,7 @@ Keep the structure consistent and reusable. Flag where I'll need to add human an
       },
     ],
   },
-  {
+{
     id: "33",
     title: "Analyze Customer Feedback with AI",
     slug: "analyze-customer-feedback-with-ai",
@@ -1300,7 +1683,7 @@ Base themes on what's actually in the feedback—don't invent issues that aren't
       },
     ],
   },
-  {
+{
     id: "34",
     title: "Write Decision Proposals with AI",
     slug: "write-decision-proposals-with-ai",
@@ -1353,7 +1736,7 @@ Represent every option fairly, including the ones I'm not recommending. Keep it 
       },
     ],
   },
-  {
+{
     id: "35",
     title: "Improve Workflows with AI",
     slug: "improve-workflows-with-ai",
@@ -1404,7 +1787,7 @@ Then suggest a streamlined version, ranked by effort vs. time saved. Flag where 
       },
     ],
   },
-  {
+{
     id: "36",
     title: "Build Dashboards with AI",
     slug: "build-dashboards-with-ai",
@@ -1454,7 +1837,7 @@ Bias toward fewer, decision-driving metrics over comprehensiveness. For each met
       },
     ],
   },
-  {
+{
     id: "37",
     title: "Run Operational Reviews with AI",
     slug: "run-operational-reviews-with-ai",
@@ -1505,7 +1888,7 @@ Focus the agenda on exceptions and decisions. Flag where you'd want more context
       },
     ],
   },
-  {
+{
     id: "38",
     title: "Document and Analyze Processes with AI",
     slug: "document-and-analyze-processes-with-ai",
@@ -1553,7 +1936,7 @@ Probe me with questions about where things go wrong or get worked around—those
       },
     ],
   },
-  {
+{
     id: "39",
     title: "Improve Team Communication Systems with AI",
     slug: "improve-team-communication-systems-with-ai",
@@ -1605,7 +1988,7 @@ Adapt to a team of my size and setup. Favor fewer, well-defined norms over an el
       },
     ],
   },
-  {
+{
     id: "40",
     title: "Analyze Business Problems with AI",
     slug: "analyze-business-problems-with-ai",
@@ -1706,7 +2089,7 @@ Cite sources for every factual claim. Never present something you couldn't verif
       },
     ],
   },
-  {
+{
     id: "42",
     title: "Build a Meeting Assistant Agent",
     slug: "build-a-meeting-assistant-agent",
@@ -1758,7 +2141,7 @@ Do NOT treat follow-ups as sent—present them for my approval. Flag any owner o
       },
     ],
   },
-  {
+{
     id: "43",
     title: "Build an Executive Assistant Agent",
     slug: "build-an-executive-assistant-agent",
@@ -1811,7 +2194,7 @@ Present everything for my review. Never treat a draft as sent or a decision as m
       },
     ],
   },
-  {
+{
     id: "44",
     title: "Build a Customer Support Agent",
     slug: "build-a-customer-support-agent",
@@ -1866,7 +2249,7 @@ Draft for my approval. When in doubt, escalate rather than guess—a wrong answe
       },
     ],
   },
-  {
+{
     id: "45",
     title: "Build a Sales Research Agent",
     slug: "build-a-sales-research-agent",
@@ -1916,7 +2299,7 @@ Cite sources for factual claims. Clearly flag anything you couldn't verify—I d
       },
     ],
   },
-  {
+{
     id: "46",
     title: "Build a Competitive Intelligence Agent",
     slug: "build-a-competitive-intelligence-agent",
@@ -1965,7 +2348,7 @@ Only report developments you can source. Do not invent or infer changes that are
       },
     ],
   },
-  {
+{
     id: "47",
     title: "Build a Data Analysis Agent",
     slug: "build-a-data-analysis-agent",
@@ -2018,7 +2401,7 @@ Show your reasoning so I can check it. Don't present an uncertain result as defi
       },
     ],
   },
-  {
+{
     id: "48",
     title: "Build a Content Workflow Agent",
     slug: "build-a-content-workflow-agent",
@@ -2067,7 +2450,7 @@ Stay close to my brand voice—flag where you're unsure of tone. Don't publish o
       },
     ],
   },
-  {
+{
     id: "49",
     title: "Build a Document Review Agent",
     slug: "build-a-document-review-agent",
@@ -2122,7 +2505,7 @@ These are candidates for my review, not conclusions. You may miss things and rai
       },
     ],
   },
-  {
+{
     id: "50",
     title: "Build a Knowledge Assistant Agent",
     slug: "build-a-knowledge-assistant-agent",
@@ -2176,10 +2559,528 @@ Accuracy and honesty matter more than completeness. A cited "I don't know" is be
         url: "https://www.notion.com/help/guides/build-your-first-custom-agent",
       },
     ],
-  }
+  },
+{
+    id: "51",
+    title: "Automate Data Entry Between Apps",
+    slug: "automate-data-entry-between-apps",
+    description:
+      "Stop copying the same information from one tool into another by hand—set up a no-code automation that moves data between your apps automatically whenever something happens. This workflow covers designing a reliable trigger-and-action flow and testing it before it goes live.",
+    category: "Automation",
+    difficulty: "Beginner",
+    timeSaved: "Save 2-4 hours/week",
+    audience: ["Operations leaders", "Team leads", "Freelancers", "Anyone doing repetitive data entry"],
+    problem:
+      "So much time disappears into manually copying data between tools: a form submission into a spreadsheet, a new contact into the CRM, an order into a tracking sheet. It's tedious, error-prone, and exactly the kind of mechanical work that shouldn't need a human—but wiring apps together sounds technical, so it never gets done.",
+    solution:
+      "No-code automation platforms like Zapier and Make connect your apps with a simple 'when this happens, do that' model—no coding required. You define a trigger (a new form response) and an action (add a row to a sheet), and the data moves itself. The key discipline is testing thoroughly before switching it on and starting with one simple flow, since a misconfigured automation can quietly copy wrong data at scale.",
+    steps: [
+      "Identify one repetitive copy-paste task that follows a clear 'when X, do Y' pattern.",
+      "Pick a platform (Zapier is the most beginner-friendly; Make offers more control).",
+      "Set the trigger (the event that starts it) and the action (what should happen).",
+      "Map the fields carefully—which piece of source data goes into which destination field.",
+      "Test with real sample data and check the destination before turning it on live.",
+      "Turn it on, then monitor the first day's runs to confirm it's behaving as expected.",
+    ],
+    prompt: `I want to automate a repetitive data-entry task between two apps. Help me design the automation before I build it.
+
+The task I do manually: [describe what you copy, from where, to where]
+Apps involved: [e.g. Google Forms -> Google Sheets, or Typeform -> HubSpot]
+How often: [frequency]
+
+Help me:
+1. Define the exact trigger (what event should start the automation)
+2. Define the action (what should happen when it triggers)
+3. Map which source fields go to which destination fields
+4. List what I should test before turning it on
+5. Flag anything that could go wrong (duplicate entries, missing data) and how to guard against it
+
+Keep it simple—one clean flow I can build and trust. Note where I'd use Zapier vs. Make for this.`,
+    tools: ["Zapier", "Make", "n8n"],
+    resources: [
+      {
+        title: "Zapier – Notion Integrations",
+        type: "Tool",
+        url: "https://zapier.com/apps/notion/integrations",
+      },
+      {
+        title: "Make – Notion Integration",
+        type: "Tool",
+        url: "https://www.make.com/en/integrations/notion",
+      },
+      {
+        title: "The Ultimate Guide to Notion Automations & the API",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-automations/",
+      },
+    ],
+  },
+{
+    id: "52",
+    title: "Build a Lead Capture Automation",
+    slug: "build-a-lead-capture-automation",
+    description:
+      "Make sure no lead ever falls through the cracks—automatically route new inquiries from forms, email, or ads into your CRM, notify the right person, and kick off follow-up. This workflow covers designing the routing and the guardrails so leads are handled fast and consistently.",
+    category: "Automation",
+    difficulty: "Intermediate",
+    timeSaved: "Save 3-5 hours/week",
+    audience: ["Sales teams", "Founders", "Operations leaders", "Marketing teams"],
+    problem:
+      "Leads arrive from everywhere—website forms, email, social, ads—and manually capturing each one, logging it, and making sure someone follows up is slow and leaky. A lead that sits unnoticed for a day is often a lost one. The routing is patterned and rule-based, but doing it by hand means speed and consistency suffer exactly when they matter most.",
+    solution:
+      "An automation can catch each new lead the moment it arrives, add it to your CRM with the right details, alert the owner, and even trigger a first response—consistently, within seconds. You design the routing rules and the guardrails (deduplication, required fields); the automation handles the speed and reliability. Start with one lead source and expand once it's proven, so you're not debugging five channels at once.",
+    steps: [
+      "Map where leads currently come from and where they need to end up.",
+      "Start with your highest-volume source and build one reliable capture flow.",
+      "Set the trigger (new form entry) and actions (add to CRM, notify owner).",
+      "Add guardrails: deduplicate against existing contacts, require key fields.",
+      "Test with real submissions and confirm nothing is lost or duplicated.",
+      "Once solid, add the next lead source to the same system.",
+    ],
+    prompt: `Help me design a lead-capture automation so no inquiry gets missed.
+
+Lead sources: [website form, email, ads, etc.]
+Where leads should go: [CRM name]
+Who should be notified: [role/person]
+Any follow-up that should auto-trigger: [e.g. confirmation email]
+
+Design the automation:
+1. The trigger for each lead source
+2. The actions (add to CRM with which fields, notify whom, any auto-response)
+3. Deduplication logic so the same lead isn't added twice
+4. What to test before going live
+5. What could break and how I'd know
+
+Recommend starting with one source. Tell me where Zapier vs. Make fits, and flag anything that needs error handling.`,
+    tools: ["Zapier", "Make", "n8n"],
+    resources: [
+      {
+        title: "Zapier – Notion Integrations",
+        type: "Tool",
+        url: "https://zapier.com/apps/notion/integrations",
+      },
+      {
+        title: "n8n – AI Automation Workflows (with Notion)",
+        type: "Tool",
+        url: "https://n8n.io/workflows/categories/ai/",
+      },
+    ],
+  },
+{
+    id: "53",
+    title: "Automate Notifications and Alerts",
+    slug: "automate-notifications-and-alerts",
+    description:
+      "Get told the moment something important happens—a big deal closes, a metric crosses a threshold, a task goes overdue—instead of finding out when you next check. This workflow covers designing alerts that inform without becoming noise you learn to ignore.",
+    category: "Automation",
+    difficulty: "Beginner",
+    timeSaved: "Save 1-3 hours/week",
+    audience: ["Managers", "Operations leaders", "Team leads", "Founders"],
+    problem:
+      "The things you most need to know about often happen quietly: a payment fails, a high-value lead comes in, a project slips past its deadline. Without alerts you find out late, by manually checking dashboards and inboxes. But naive alerting swings the other way—so many notifications that you tune them all out, missing the one that mattered.",
+    solution:
+      "Automations can watch your systems and notify you—via Slack, email, or text—only when something genuinely warrants attention. The whole craft here is signal-to-noise: defining thresholds tight enough that every alert is worth reading. You decide what actually merits interrupting you; the automation watches tirelessly so you don't have to. Done well, you check dashboards less and trust that you'll be told what matters.",
+    steps: [
+      "List the events that genuinely warrant an interruption—be strict; not everything qualifies.",
+      "For each, define the precise condition that should trigger an alert.",
+      "Set the channel (Slack for team, text for urgent, email for FYI) to match urgency.",
+      "Build the automation and test that alerts fire correctly—and don't fire when they shouldn't.",
+      "Live with it a week and prune anything that turned out to be noise.",
+      "Tune thresholds so every remaining alert is one you'd want.",
+    ],
+    prompt: `Help me design useful alerts—enough to keep me informed, not so many I tune them out.
+
+Things I want to be alerted about:
+"""
+[LIST THE EVENTS: e.g. deal over $X closes, payment fails, task overdue, metric crosses threshold]
+"""
+Where each should go: [Slack / email / text, by urgency]
+
+For each alert:
+1. Define the precise trigger condition (be specific to avoid false alarms)
+2. Recommend the right channel based on urgency
+3. Note the risk of it becoming noise, and how to keep it meaningful
+
+Then tell me which of these are genuinely alert-worthy vs. better as a periodic digest. Push back if I'm asking for too many real-time alerts—I'd rather not create notification fatigue.`,
+    tools: ["Zapier", "Make", "n8n"],
+    resources: [
+      {
+        title: "Zapier – Notion Integrations",
+        type: "Tool",
+        url: "https://zapier.com/apps/notion/integrations",
+      },
+      {
+        title: "Notion Database Automations: Complete 2026 Guide (12 Examples)",
+        type: "Article",
+        url: "https://sync2sheets.com/blog/notion-database-automations/",
+      },
+    ],
+  },
+{
+    id: "54",
+    title: "Sync Data Across Your Tools",
+    slug: "sync-data-across-your-tools",
+    description:
+      "Keep the same information consistent everywhere it lives—so updating a record in one tool updates it in the others, and your systems stop disagreeing with each other. This workflow covers designing a reliable sync and avoiding the loops and conflicts that trip people up.",
+    category: "Automation",
+    difficulty: "Advanced",
+    timeSaved: "Save 2-4 hours/week",
+    audience: ["Operations leaders", "RevOps / systems admins", "Founders", "Data-minded managers"],
+    problem:
+      "When the same information lives in multiple tools—CRM, spreadsheet, billing, project tracker—they drift out of sync. Someone updates a contact in one place and now three systems disagree. Manually keeping them aligned is endless, and the inconsistencies cause real mistakes: wrong emails, wrong totals, duplicated effort.",
+    solution:
+      "A sync automation keeps records consistent across tools: change something in one, and the others update to match. This is more advanced than a one-way flow because you have to handle direction, conflicts, and loops carefully—a naive two-way sync can ping-pong updates endlessly. Done right, with clear rules about which system is the source of truth, it eliminates a whole category of drift. Start one-directional and add complexity only as needed.",
+    steps: [
+      "Decide which tool is the source of truth for each field—this prevents conflicts.",
+      "Start with a one-way sync (source -> others) before attempting two-way.",
+      "Build the automation to push changes from the source to the destinations.",
+      "Add safeguards against infinite loops if you later make it two-way.",
+      "Test extensively with edge cases—simultaneous edits, deletions, missing fields.",
+      "Monitor closely at first; sync errors compound quietly if unwatched.",
+    ],
+    prompt: `Help me design a data sync between my tools—carefully, since syncs can create loops and conflicts.
+
+Tools and the data to keep in sync:
+"""
+[e.g. keep contact info consistent between HubSpot and a Google Sheet]
+"""
+Which tool should be the source of truth: [if you know]
+
+Help me:
+1. Decide the source of truth for each field
+2. Design a one-way sync first (I'll consider two-way only if needed)
+3. Identify conflict and loop risks, and how to prevent them
+4. List edge cases to test (simultaneous edits, deletions, empty fields)
+5. Recommend Make or n8n over Zapier if the logic is complex, and say why
+
+Steer me toward the simplest reliable design. Warn me clearly about anything that could cause a runaway loop.`,
+    tools: ["Make", "n8n", "Zapier"],
+    resources: [
+      {
+        title: "Make – Notion Integration",
+        type: "Tool",
+        url: "https://www.make.com/en/integrations/notion",
+      },
+      {
+        title: "Notion Database Automations: The Complete Guide",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-database-automations-the-complete-guide/",
+      },
+    ],
+  },
+{
+    id: "55",
+    title: "Automate Recurring Task Creation",
+    slug: "automate-recurring-task-creation",
+    description:
+      "Stop manually recreating the same tasks every week, month, or project kickoff—have them generated automatically on a schedule or trigger, fully assigned and ready. This workflow covers setting up recurring and templated task automation that stays reliable.",
+    category: "Automation",
+    difficulty: "Beginner",
+    timeSaved: "Save 1-2 hours/week",
+    audience: ["Project managers", "Operations leaders", "Team leads", "Freelancers"],
+    problem:
+      "Lots of work is predictable: the same onboarding checklist for every new hire, the same month-end close tasks, the same weekly report prep. Recreating these by hand each time is pure overhead, and doing it manually means steps get forgotten and timing slips. It's the definition of work a machine should do.",
+    solution:
+      "Automations can generate tasks on a schedule or in response to a trigger—spinning up a full templated checklist, assigned and dated, the moment a project starts or a date arrives. You define the template and the trigger once; the automation reproduces it perfectly every time. This pairs naturally with the SOPs and templates you've built, turning documented processes into ones that kick off on their own.",
+    steps: [
+      "Identify a set of tasks you recreate on a schedule or at a predictable trigger.",
+      "Build the task template: the steps, owners, and relative due dates.",
+      "Set the trigger—a schedule (every Monday, month-end) or an event (new project created).",
+      "Configure the automation to generate the tasks in your PM tool, assigned and dated.",
+      "Test one cycle end to end and confirm tasks appear correctly.",
+      "Refine the template over time as the process improves.",
+    ],
+    prompt: `Help me automate creating a recurring set of tasks so I stop rebuilding them by hand.
+
+The tasks I recreate repeatedly:
+"""
+[LIST THE TASKS, WITH OWNERS AND ROUGH TIMING]
+"""
+What should trigger them: [a schedule like month-end, or an event like "new client added"]
+My PM tool: [e.g. Notion, Asana, ClickUp]
+
+Help me:
+1. Turn these into a clean reusable task template (steps, owners, relative due dates)
+2. Define the trigger (schedule or event)
+3. Design the automation to generate them assigned and dated
+4. List what to test in the first cycle
+5. Note how to handle changes (e.g. if the template needs updating later)
+
+Keep it simple and reliable. Tell me if my PM tool's native recurring features would be simpler than a Zapier/Make automation here.`,
+    tools: ["Zapier", "Make", "Notion AI"],
+    resources: [
+      {
+        title: "Database Automations (Official Guide)",
+        type: "Guide",
+        url: "https://www.notion.com/help/database-automations",
+      },
+      {
+        title: "Notion Database Automations: Complete 2026 Guide (12 Examples)",
+        type: "Article",
+        url: "https://sync2sheets.com/blog/notion-database-automations/",
+      },
+    ],
+  },
+{
+    id: "56",
+    title: "Automate File Organization and Backups",
+    slug: "automate-file-organization-and-backups",
+    description:
+      "Keep files sorted and backed up without thinking about it—automatically route new documents to the right folders, rename them consistently, and copy important ones to backup. This workflow covers setting up file automations that run quietly in the background.",
+    category: "Automation",
+    difficulty: "Beginner",
+    timeSaved: "Save 1-2 hours/week",
+    audience: ["Operations leaders", "Freelancers", "Consultants", "Anyone managing lots of files"],
+    problem:
+      "Files pile up in a mess: downloads folder chaos, attachments never saved properly, important documents with no backup. Organizing them manually is a chore nobody keeps up with, and the lack of consistent backups is a risk that stays invisible until something is lost.",
+    solution:
+      "Automations can watch a folder or inbox and act on new files: sort them into the right place by type or name, apply consistent naming, and copy critical files to a backup location. You set the rules once; the tidying happens automatically. It's a low-stakes, high-satisfaction place to start with automation—mistakes are easy to catch and the payoff is immediate.",
+    steps: [
+      "Pick one file pain point: messy downloads, unsaved attachments, or missing backups.",
+      "Define the rule: when a file matching X appears, move/rename/copy it to Y.",
+      "Build the automation on your file platform (Google Drive, Dropbox, OneDrive via Zapier/Make).",
+      "Test with sample files and confirm they land in the right place, correctly named.",
+      "For backups, verify the copy actually appears in the backup location.",
+      "Expand to other file types once the first rule runs reliably.",
+    ],
+    prompt: `Help me automate file organization and backups so I stop doing it by hand.
+
+My file problem:
+"""
+[e.g. email attachments never get saved; downloads folder is chaos; no backup of client files]
+"""
+Where files live: [Google Drive, Dropbox, OneDrive, etc.]
+
+Help me:
+1. Define the rule (when a file like X appears, do Y — move, rename, copy)
+2. Design a consistent naming convention if useful
+3. Set up the backup copy for critical files
+4. List what to test before trusting it
+5. Note any risk (e.g. overwriting, wrong-folder routing) and how to avoid it
+
+Keep it simple—this is a good first automation. Tell me the Zapier or Make setup for my file platform.`,
+    tools: ["Zapier", "Make", "n8n"],
+    resources: [
+      {
+        title: "The Ultimate Guide to Notion Automations & the API",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-automations/",
+      },
+      {
+        title: "Make – Notion Integration",
+        type: "Tool",
+        url: "https://www.make.com/en/integrations/notion",
+      },
+    ],
+  },
+{
+    id: "57",
+    title: "Build an Approval Workflow Automation",
+    slug: "build-an-approval-workflow-automation",
+    description:
+      "Turn a messy approval chain—expense requests, content sign-offs, time off—into an automated flow that routes each request to the right approver, tracks status, and nudges when it stalls. This workflow covers designing the routing and keeping a human decision at each gate.",
+    category: "Automation",
+    difficulty: "Intermediate",
+    timeSaved: "Save 2-3 hours/week",
+    audience: ["Operations leaders", "Managers", "Team leads", "Founders"],
+    problem:
+      "Approvals get stuck in inboxes. A request goes out, the approver misses it, the requester doesn't know the status, and days pass. Chasing approvals manually and tracking who's approved what is tedious coordination work, and the delays hold up real business.",
+    solution:
+      "An automation can route each request to the right approver, track its status, send reminders when it stalls, and notify the requester on a decision—while keeping the actual approve/reject decision firmly with a human. The automation handles the routing and chasing, not the judgment. You design who approves what and the escalation rules; the flow removes the coordination overhead that causes delays.",
+    steps: [
+      "Map the approval: what's being approved, who approves it, and any thresholds (e.g. amounts over $X need a second approver).",
+      "Design the routing—which request goes to which approver.",
+      "Build the flow: request submitted -> routed to approver -> decision recorded -> requester notified.",
+      "Add reminders for stalled approvals and an escalation path.",
+      "Keep the approve/reject decision human—the automation routes and tracks, it doesn't decide.",
+      "Test each path (approve, reject, escalate) before rolling out.",
+    ],
+    prompt: `Help me design an approval workflow automation. The routing should be automated but the actual approval decision stays with a human.
+
+What needs approving: [e.g. expenses, content, time off]
+Who approves what (including any thresholds):
+"""
+[e.g. expenses under $500 -> manager; over $500 -> manager then finance]
+"""
+
+Design the flow:
+1. How a request gets submitted and routed to the right approver
+2. How status is tracked and the requester is kept informed
+3. Reminders for stalled approvals and an escalation path
+4. Confirmation that the approve/reject decision remains a human action
+5. Each path to test (approved, rejected, escalated)
+
+Keep humans in control of decisions. Recommend the right tool and flag where it could get stuck.`,
+    tools: ["Make", "Zapier", "n8n"],
+    resources: [
+      {
+        title: "Automations (Notion Help Center Guides)",
+        type: "Guide",
+        url: "https://www.notion.com/help/guides/category/automations",
+      },
+      {
+        title: "Notion Database Automations: The Complete Guide",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-database-automations-the-complete-guide/",
+      },
+    ],
+  },
+{
+    id: "58",
+    title: "Automate Social Media Posting",
+    slug: "automate-social-media-posting",
+    description:
+      "Keep a consistent posting schedule without living in each platform—queue content once and have it publish across channels automatically, on schedule. This workflow covers automating the mechanics of publishing while keeping a human eye on what actually goes out.",
+    category: "Automation",
+    difficulty: "Beginner",
+    timeSaved: "Save 2-3 hours/week",
+    audience: ["Marketers", "Founders", "Creators", "Small business owners"],
+    problem:
+      "Consistent social presence means logging into each platform, at the right time, to post the right thing—repetitive work that's easy to let slide. Manually posting across channels is a time sink, and inconsistency (going quiet for weeks) undercuts the whole effort.",
+    solution:
+      "Automation handles the publishing mechanics: you prepare content in one place, and it posts to your channels on schedule. The important boundary is that a human still approves what goes out—automating distribution is smart, but auto-generating and auto-posting unreviewed content risks embarrassing or off-brand posts. So automate the scheduling and cross-posting; keep the sign-off human. That gives you consistency without ceding editorial control.",
+    steps: [
+      "Decide your channels and a realistic posting cadence.",
+      "Prepare content in a single source (a sheet, a content calendar, or a scheduler).",
+      "Set up the automation to publish to each channel on schedule.",
+      "Keep a human approval step before anything publishes—review the queue.",
+      "Test with a low-stakes post per channel to confirm formatting survives.",
+      "Monitor the first week; each platform mangles formatting differently.",
+    ],
+    prompt: `Help me automate social media posting so I stay consistent—but keep a human approval step before anything publishes.
+
+My channels: [list]
+How I want to prepare content: [e.g. a Google Sheet, a content calendar]
+Posting cadence: [e.g. 3x/week]
+
+Help me:
+1. Design a flow: content queued in one place -> scheduled -> posted to each channel
+2. Build in a review/approval step before publishing
+3. Note how each platform may mangle formatting (character limits, images, links)
+4. List what to test per channel
+5. Recommend whether a dedicated scheduler or a Zapier/Make flow fits better
+
+Do NOT design anything that auto-generates and auto-posts unreviewed content—I want to approve what goes out. Flag brand-risk points.`,
+    tools: ["Zapier", "Make", "n8n"],
+    resources: [
+      {
+        title: "Zapier – Notion Integrations",
+        type: "Tool",
+        url: "https://zapier.com/apps/notion/integrations",
+      },
+      {
+        title: "n8n – AI Automation Workflows (with Notion)",
+        type: "Tool",
+        url: "https://n8n.io/workflows/categories/ai/",
+      },
+    ],
+  },
+{
+    id: "59",
+    title: "Connect AI to Your Automations",
+    slug: "connect-ai-to-your-automations",
+    description:
+      "Add an AI step inside a no-code automation—so a flow can summarize, categorize, extract, or draft as it runs, not just move data. This workflow covers combining automation platforms with AI while keeping the reliability an automation needs.",
+    category: "Automation",
+    difficulty: "Advanced",
+    timeSaved: "Save 3-5 hours/week",
+    audience: ["Operations leaders", "RevOps", "Technical marketers", "Automation builders"],
+    problem:
+      "Plain automations move data but can't think—they can copy a support email to a sheet, but not categorize it, gauge its sentiment, or draft a reply. That leaves a gap where a human still has to step in to do the judgment part, breaking the flow. The pieces exist separately; the value is in connecting them.",
+    solution:
+      "Modern automation platforms (Make, n8n, Zapier) can call an AI model as a step in a flow—so an automation can summarize, classify, extract, or draft mid-pipeline. A support email arrives, AI categorizes and drafts a response, the automation routes it for human approval. The design challenge is reliability: AI steps are less predictable than deterministic ones, so you validate outputs, handle errors, and keep humans on anything consequential. This is where automation and AI combine into something genuinely powerful.",
+    steps: [
+      "Find a flow where a human currently does a 'thinking' step (categorize, summarize, draft).",
+      "Choose a platform with a solid AI integration (Make and n8n are strong here).",
+      "Insert an AI step: pass it the data, with a clear, constrained prompt.",
+      "Validate the AI's output before the next step acts on it—handle the cases where it's wrong.",
+      "Keep a human approval gate on anything that sends externally or makes a decision.",
+      "Test with many real examples; AI steps fail in ways deterministic ones don't.",
+    ],
+    prompt: `Help me add an AI step inside a no-code automation—reliably.
+
+The flow today: [what the automation does or would do]
+The 'thinking' step I want AI to handle: [e.g. categorize incoming emails, summarize form responses, draft a reply]
+Platform: [Make / n8n / Zapier]
+
+Help me:
+1. Design where the AI step fits in the flow
+2. Write a clear, constrained prompt for that step so outputs are consistent
+3. Add validation—how to check the AI output before the next step uses it
+4. Add error handling for when the AI returns something unexpected
+5. Identify where a human must stay in the loop
+
+Prioritize reliability. Warn me where an AI step introduces unpredictability, and keep humans on anything consequential.`,
+    tools: ["Make", "n8n", "Zapier"],
+    resources: [
+      {
+        title: "n8n – AI Automation Workflows (with Notion)",
+        type: "Tool",
+        url: "https://n8n.io/workflows/categories/ai/",
+      },
+      {
+        title: "The Ultimate Guide to Notion Automations & the API",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-automations/",
+      },
+    ],
+  },
+{
+    id: "60",
+    title: "Automate Report Generation and Delivery",
+    slug: "automate-report-generation-and-delivery",
+    description:
+      "Have recurring reports build and send themselves—pull the data, assemble the report, and deliver it to the right people on schedule, without you touching it each period. This workflow covers automating the full pipeline while keeping accuracy checks in place.",
+    category: "Automation",
+    difficulty: "Advanced",
+    timeSaved: "Save 3-5 hours per cycle",
+    audience: ["Operations leaders", "Analysts", "Managers", "Founders"],
+    problem:
+      "Recurring reports are a full manual pipeline every cycle: pull data from several sources, assemble it into a report, and send it to stakeholders. Even when the structure is fixed, the fetching and distributing eats hours, and doing it under deadline invites errors and missed recipients.",
+    solution:
+      "An automation can run the whole pipeline: gather data from your sources on schedule, populate a report template, and deliver it to the right people—hands-off each period. This is advanced because it chains several steps that each must be reliable, so the design emphasis is on data validation and a sanity check before delivery. Many teams keep a human 'approve before send' gate on external reports. You build the pipeline once; it runs every cycle with you reviewing rather than assembling.",
+    steps: [
+      "Confirm the report structure is stable enough to templatize (pairs with the recurring-report workflow).",
+      "Identify the data sources and whether each can be pulled automatically.",
+      "Build the pipeline: fetch data -> populate template -> format -> deliver.",
+      "Add a validation step that checks the data looks sane before the report goes out.",
+      "Keep an approval gate on externally-sent reports until you fully trust it.",
+      "Test several full cycles before relying on it unattended.",
+    ],
+    prompt: `Help me automate a recurring report end to end—data pull, assembly, and delivery—reliably.
+
+The report: [what it is, how often, who receives it]
+Data sources: [where the data lives and whether it can be pulled automatically]
+Delivery: [email, Slack, shared doc]
+
+Help me:
+1. Design the pipeline (fetch -> populate template -> format -> deliver)
+2. Add a data-validation/sanity-check step before it sends
+3. Decide where a human approval gate belongs (especially for external reports)
+4. List the full-cycle tests to run before trusting it unattended
+5. Flag the steps most likely to break and how I'd be alerted
+
+Prioritize accuracy over full automation—I'd rather approve before send than deliver a wrong report. Recommend the right platform for chaining these steps.`,
+    tools: ["Make", "n8n", "Zapier"],
+    resources: [
+      {
+        title: "The Ultimate Guide to Notion Automations & the API",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-automations/",
+      },
+      {
+        title: "Notion Database Automations: The Complete Guide",
+        type: "Guide",
+        url: "https://thomasjfrank.com/notion-database-automations-the-complete-guide/",
+      },
+    ],
+  },
 ];
+
 export function getWorkflowBySlug(slug: string): Workflow | undefined {
   return workflows.find((workflow) => workflow.slug === slug);
 }
+
+
 
 
