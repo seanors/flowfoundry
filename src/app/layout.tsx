@@ -7,7 +7,7 @@ const inter = Inter({
 });
 
 const siteDescription =
-  "A curated library of practical AI workflows—step-by-step plays for project management, knowledge work, productivity, and more.";
+  "A curated library of practical AI workflows for knowledge workers—ready-to-use plays for projects, productivity, ops, and more.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://flowfoundry-eight.vercel.app"),
