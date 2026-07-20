@@ -10,7 +10,7 @@ const siteDescription =
   "A curated library of practical AI workflows for knowledge workers—ready-to-use plays for projects, productivity, ops, and more.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://flowfoundry-eight.vercel.app"),
+  metadataBase: new URL("https://goflowfoundry.com"),
   title: {
     default: "FlowFoundry — Practical AI workflows for how you work",
     template: "%s | FlowFoundry",

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { categories } from "@/data/categories";
 import { workflows } from "@/data/workflows";
 
-const BASE_URL = "https://flowfoundry-eight.vercel.app";
+const BASE_URL = "https://goflowfoundry.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
