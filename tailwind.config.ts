@@ -6,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/lib/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
   	extend: {
@@ -14,6 +15,36 @@ const config: Config = {
   			'foundry-white': '#FAFAFA',
   			'forge-blue': '#2563EB',
   			'flow-purple': '#7C3AED',
+			'project-management': {
+				bg: '#EEEDFE',
+				text: '#3C3489',
+				dot: '#7C3AED',
+			},
+			'knowledge-management': {
+				bg: '#E6F1FB',
+				text: '#0C447C',
+				dot: '#2563EB',
+			},
+			productivity: {
+				bg: '#E1F5EE',
+				text: '#085041',
+				dot: '#0F6E56',
+			},
+			operations: {
+				bg: '#FAEEDA',
+				text: '#633806',
+				dot: '#BA7517',
+			},
+			automation: {
+				bg: '#FAECE7',
+				text: '#712B13',
+				dot: '#D85A30',
+			},
+			'ai-agents': {
+				bg: '#FBEAF0',
+				text: '#72243E',
+				dot: '#D4537E',
+			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -62,7 +93,11 @@ const config: Config = {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
-  		borderRadius: {
+  		backgroundImage: {
+			'brand-gradient':
+				'linear-gradient(135deg, #7C3AED 0%, #2563EB 100%)',
+		},
+		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'

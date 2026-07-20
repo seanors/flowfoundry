@@ -1,10 +1,5 @@
 import Link from "next/link";
-
-const categoryStyles: Record<string, string> = {
-  "Project Management": "bg-forge-blue/10 text-forge-blue",
-  "Knowledge Management": "bg-flow-purple/10 text-flow-purple",
-  Operations: "bg-forge-black/5 text-forge-black/70",
-};
+import { getCategoryAccent } from "@/lib/categoryColors";
 
 type WorkflowCardProps = {
   title: string;
@@ -21,15 +16,18 @@ export function WorkflowCard({
   tools,
   href,
 }: WorkflowCardProps) {
-  const categoryClass =
-    categoryStyles[category] ?? "bg-forge-black/5 text-forge-black/70";
+  const accent = getCategoryAccent(category);
 
   return (
     <Link href={href} className="group block h-full">
       <article className="flex h-full flex-col rounded-xl border border-black/8 bg-white p-6 transition-all duration-200 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-black/5">
         <span
-          className={`inline-flex w-fit rounded-full px-3 py-1 text-xs font-medium ${categoryClass}`}
+          className={`inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${accent.bgClass} ${accent.textClass}`}
         >
+          <span
+            className={`h-1.5 w-1.5 shrink-0 rounded-full ${accent.dotClass}`}
+            aria-hidden="true"
+          />
           {category}
         </span>
         <h3 className="mt-4 text-lg font-medium leading-snug text-forge-black">

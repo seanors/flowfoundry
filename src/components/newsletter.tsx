@@ -17,7 +17,7 @@ export function Newsletter() {
           />
           <button
             type="button"
-            className="h-12 rounded-lg bg-forge-blue px-8 text-sm font-medium text-white transition-colors hover:bg-forge-blue/90 sm:shrink-0"
+            className="h-12 rounded-lg bg-brand-gradient px-8 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90 sm:shrink-0"
           >
             Subscribe
           </button>

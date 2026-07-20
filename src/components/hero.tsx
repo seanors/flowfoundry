@@ -67,8 +67,17 @@ export function Hero() {
   }
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
-      <div className="mx-auto max-w-4xl text-center">
+    <section className="relative mx-auto max-w-6xl overflow-hidden px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
+      {/* Soft atmospheric brand glow — decorative only */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-8 z-0 h-[28rem] w-[40rem] -translate-x-1/2 sm:h-[32rem] sm:w-[48rem]"
+      >
+        <div className="absolute inset-0 -translate-x-[18%] rounded-full bg-flow-purple/[0.12] blur-3xl" />
+        <div className="absolute inset-0 translate-x-[18%] translate-y-[12%] rounded-full bg-forge-blue/[0.12] blur-3xl" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
         <h1 className="text-4xl font-semibold tracking-tight text-forge-black sm:text-5xl lg:text-6xl">
           Where AI workflows are forged.
         </h1>
@@ -89,7 +98,7 @@ export function Hero() {
           <button
             type="button"
             onClick={() => runSearch(query)}
-            className="h-12 rounded-lg bg-forge-blue px-8 text-sm font-medium text-white transition-colors hover:bg-forge-blue/90 sm:shrink-0"
+            className="h-12 rounded-lg bg-brand-gradient px-8 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90 sm:shrink-0"
           >
             Search
           </button>

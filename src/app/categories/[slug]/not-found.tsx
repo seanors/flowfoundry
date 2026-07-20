@@ -11,7 +11,7 @@ export default function CategoryNotFound() {
       </p>
       <Link
         href="/explore"
-        className="mt-8 rounded-lg bg-forge-blue px-6 py-3 text-sm font-medium text-white hover:bg-forge-blue/90"
+        className="mt-8 rounded-lg bg-brand-gradient px-6 py-3 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
       >
         Browse categories
       </Link>

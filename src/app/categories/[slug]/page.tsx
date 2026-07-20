@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { WorkflowCard } from "@/components/workflow-card";
 import { categories, getCategoryBySlug } from "@/data/categories";
 import { workflows } from "@/data/workflows";
+import { getCategoryAccent } from "@/lib/categoryColors";
 
 type CategoryPageProps = {
   params: { slug: string };
@@ -32,6 +33,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
+  const accent = getCategoryAccent(category.name);
   const categoryWorkflows = workflows.filter(
     (workflow) => workflow.category === category.name
   );
@@ -48,12 +50,27 @@ export default function CategoryPage({ params }: CategoryPageProps) {
             ← All categories
           </Link>
 
-          <h1 className="mt-6 text-3xl font-semibold tracking-tight text-forge-black sm:text-4xl">
-            {category.name}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {category.description}
-          </p>
+          <div className="mt-6">
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${accent.bgClass} ${accent.textClass}`}
+            >
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${accent.dotClass}`}
+                aria-hidden="true"
+              />
+              Category
+            </span>
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-forge-black sm:text-4xl">
+              {category.name}
+            </h1>
+            <div
+              className={`mt-4 h-1 w-16 rounded-full ${accent.dotClass}`}
+              aria-hidden="true"
+            />
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              {category.description}
+            </p>
+          </div>
 
           {categoryWorkflows.length > 0 ? (
             <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -79,7 +96,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
               </p>
               <Link
                 href="/explore"
-                className="mt-8 inline-flex rounded-lg bg-forge-blue px-6 py-3 text-sm font-medium text-white hover:bg-forge-blue/90"
+                className="mt-8 inline-flex rounded-lg bg-brand-gradient px-6 py-3 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90"
               >
                 Browse categories
               </Link>
