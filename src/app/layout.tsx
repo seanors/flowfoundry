@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [ogImage.url],
   },
+  alternates: {
+    canonical: "https://goflowfoundry.com",
+  },
 };
 
 export default function RootLayout({
